@@ -15,7 +15,6 @@
   "main": "dist/angularjs-input-tags.js",
   "dependencies": {
     "angular": ">=1.6.0",
-    "bootstrap": ">=3.3.0",
-    "angular-bootstrap": ">=2.5.0"
+    "bootstrap": ">=3.3.0"
   }
 }
