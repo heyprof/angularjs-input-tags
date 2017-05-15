@@ -1,0 +1,30 @@
+<div class="host input-group"
+     tabindex="-1"
+     data-ng-blur="$ctrl.triggerHostBlur($event)"
+     data-ng-focus="$ctrl.triggerHostFocus($event)">
+  <div class="input-group-addon"
+       data-ng-repeat="tag in $ctrl.tags track by $ctrl.track(tag)">
+    <span class="tag-text" data-ng-bind="::$ctrl.getTagText(tag)"></span>
+    <span style="cursor: pointer" ng-click="$ctrl.removeTag(tag)">
+      &nbsp;&#x274c;
+    </span>
+  </div>
+
+  <input-tags-auto-complete source="$ctrl.suggestions"
+                 on-tag-add="$ctrl.addTag(tag)"
+                 visible="$ctrl.autocompleteVisible"></input-tags-auto-complete>
+
+  <input class="form-control"
+         autocomplete="off"
+         data-ng-trim="false"
+         type="text"
+         tabindex="{{$ctrl.tabindex}}"
+         placeholder="{{$ctrl.placeholder}}"
+         spellcheck="{{$ctrl.spellcheck}}"
+         data-ng-disabled="$ctrl.disabled"
+         data-ng-model="$ctrl.inputText"
+         data-ng-model-options="{getterSetter: true}"
+         data-ng-focus="$ctrl.triggerInputFocus($event)"
+         data-ng-blur="$ctrl.triggerInputBlur($event)"
+         data-ng-paste="$ctrl.inputPaste($event)">
+</div>

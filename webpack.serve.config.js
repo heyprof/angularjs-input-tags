@@ -1,0 +1,58 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+
+module.exports = {
+  entry: [
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
+    './src/dev-server.js'
+  ],
+  output: {
+    filename: '[name].js',
+    sourceMapFilename: '[name].map'
+  },
+  devtool: 'eval',
+  devServer: {
+    hot: true,
+    publicPath: '/'
+  },
+  module: {
+    rules: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: 'eslint-loader',
+      enforce: 'pre'
+    }, {
+      test: /\.(css|scss$)/,
+      loaders: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+    }, {
+      test: /\.(eot|svg|ttf|woff|woff2)$/,
+      loader: 'file-loader?name=public/fonts/[name].[ext]'
+    }, {
+      test: /\.js$/,
+      exclude: /(node_modules)/,
+      loaders: [
+        'ng-annotate-loader',
+        'babel-loader'
+      ]
+    }, {
+      test: /\.html$/,
+      loaders: [
+        'html-loader'
+      ]
+    }]
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks(module) {
+        return module.context && module.context.indexOf('node_modules') !== -1;
+      }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest'
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({template: './src/dev-server.html'})
+  ]
+};

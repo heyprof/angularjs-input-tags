@@ -1,0 +1,15 @@
+input-tags {
+  .host {
+    width: 100%;
+    outline: none;
+    user-select:none;
+  }
+
+  .input-group-addon {
+    border-right: 0;
+  }
+
+  .display {
+    display: block;
+  }
+}
