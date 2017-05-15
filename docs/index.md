@@ -22,11 +22,11 @@ angular.module('app', ['angularjs-input-tags']);
 And the component where you want in this app:
 
 ```html
-<tags-dropdown tags="$sctrl.tags"
+<input-tags tags="$sctrl.tags"
             suggestions="$ctrl.suggestions"
             key-property="code"
             display-property="title">
-</tags-dropdown>
+</input-tags>
 ```
 
 Fill data in a controller:
