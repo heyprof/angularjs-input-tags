@@ -89,7 +89,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 /**
  * @ngdoc component
- * @name tagsDropdownAutoComplete
+ * @name autoComplete
  * @module angularjs-input-tags
  */
 var AutoComplete = function () {
@@ -307,8 +307,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
- * @ngdoc directive
- * @name tagsDropdown
+ * @ngdoc component
+ * @name inputTags
  * @module angularjs-input-tags
  *
  * @description

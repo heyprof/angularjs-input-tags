@@ -1,6 +1,6 @@
 /**
  * @ngdoc component
- * @name tagsDropdownAutoComplete
+ * @name autoComplete
  * @module angularjs-input-tags
  */
 class AutoComplete {

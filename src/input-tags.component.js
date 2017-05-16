@@ -3,8 +3,8 @@ import AutoCompleteComponent from './auto-complete.component';
 import './input-tags.style.scss';
 
 /**
- * @ngdoc directive
- * @name tagsDropdown
+ * @ngdoc component
+ * @name inputTags
  * @module angularjs-input-tags
  *
  * @description
