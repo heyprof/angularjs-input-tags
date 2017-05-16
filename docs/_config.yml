@@ -1,6 +1,6 @@
 theme: jekyll-theme-slate
-title: Angular Tags Dropdown
-description: AngularJS component to manage tags in input with dropdown selector based on Bootstrap-UI
+title: AngularJS Input Tags
+description: AngularJS component to manage tags in input with dropdown selector themed with Bootstrap
 
 show_downloads: true
 google_analytics: UA-99226656-1
