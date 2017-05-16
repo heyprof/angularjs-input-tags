@@ -1,11 +1,11 @@
 ## Demo
 
-<tags-dropdown tags="$ctrl.tags"
+<input-tags tags="$ctrl.tags"
             suggestions="$ctrl.suggestions"
             key-property="code"
             display-property="title"
             min-length="1">
-</tags-dropdown>
+</input-tags>
 
 ## Usage
 
