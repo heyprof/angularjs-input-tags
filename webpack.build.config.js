@@ -1,5 +1,4 @@
 /* eslint-disable quote-props */
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
@@ -41,7 +40,6 @@ module.exports = {
   },
   plugins: [
     require('autoprefixer'),
-    new CleanWebpackPlugin('dist/*'),
     new webpack.optimize.UglifyJsPlugin({
       include: /\.min\.js$/,
       minimize: true
