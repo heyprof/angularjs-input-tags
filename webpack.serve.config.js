@@ -13,8 +13,7 @@ module.exports = {
   },
   devtool: 'eval',
   devServer: {
-    hot: true,
-    publicPath: '/'
+    hot: true
   },
   module: {
     rules: [{
