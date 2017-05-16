@@ -1,8 +1,4 @@
-## Angular Tags Dropdown
-
-An [AngularJS](https://angularjs.org/) [Component](https://docs.angularjs.org/guide/component) for tags input behaviour on the top of bootstrap
-
-### Demo
+## Demo
 
 <tags-dropdown tags="$ctrl.tags"
             suggestions="$ctrl.suggestions"
@@ -11,7 +7,7 @@ An [AngularJS](https://angularjs.org/) [Component](https://docs.angularjs.org/gu
             min-length="1">
 </tags-dropdown>
 
-### Usage
+## Usage
 
 Add module to your app:
 
@@ -53,7 +49,7 @@ function searchCtrl() {
 }
 ```
 
-### LICENCE MIT
+## LICENCE MIT
 
 The MIT License (MIT)
 
