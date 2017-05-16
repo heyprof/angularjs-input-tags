@@ -28,8 +28,7 @@ Incoming-features:
 
 **See [https://heyprof.github.io/angularjs-input-tags/](https://heyprof.github.io/angularjs-input-tags/) for doc and demo.**
 
-### Develop
-
+### Contrib
 
 Start you should play with dependencies: `npm install`
 
@@ -50,10 +49,7 @@ Technical TODOs:
 
 ### Execute tests TODO
 
-*Warning: Actual tests are dummies*
-
-To execute tests you must have bower installed ( `npm install bower` )
-then do:
+*Warning: Not implemented yet*
 
 `npm test`
 
