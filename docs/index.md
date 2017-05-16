@@ -1,3 +1,8 @@
+## Install
+
+- npm: `npm install --save angularjs-input-tags`
+- bower: `bower install --save angularjs-input-tags`
+
 ## Demo
 
 <input-tags tags="$ctrl.tags"
