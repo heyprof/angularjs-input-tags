@@ -26,23 +26,27 @@ Incoming-features:
 
 ### Usage && Demo
 
-See [https://heyprof.github.io/angularjs-input-tags/](https://heyprof.github.io/angularjs-input-tags/) for demo and installation.
+**See [https://heyprof.github.io/angularjs-input-tags/](https://heyprof.github.io/angularjs-input-tags/) for doc and demo.**
 
 ### Develop
 
-At start, do the npm dance :
 
-`npm start`
+Start you should play with dependencies: `npm install`
 
-Then build the dist :
+Then you should be able to develop with: `npm run serve` (with hot reload)
 
-`npm run pack`
+Finally, if you want generate the dist folder: `npm run build`
 
-TODO:
+That's it, you can create fork and submit your updates :)
+
+Technical TODOs:
 - Yarn ?
 - Deploy on npm repos
 - create doc with dgeni
 - Create tests
+
+- [Npm Guide](https://docs.npmjs.com/getting-started/publishing-npm-packages)
+- [Bower Guide](https://bower.io/docs/creating-packages/)
 
 ### Execute tests TODO
 
