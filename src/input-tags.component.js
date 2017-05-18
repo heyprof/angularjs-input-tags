@@ -78,10 +78,8 @@ class InputTags {
     this.autocompleteVisible = true;
   }
 
-  triggerInputBlur(event) {
+  triggerInputBlur() {
     this.inputFocus = false;
-    console.log(event);
-    console.log(this.$document);
     this.$timeout(() => {
       this.autocompleteVisible = this.hostFocus;
     });

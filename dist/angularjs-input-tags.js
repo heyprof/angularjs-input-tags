@@ -395,12 +395,10 @@ var InputTags = function () {
     }
   }, {
     key: 'triggerInputBlur',
-    value: function triggerInputBlur(event) {
+    value: function triggerInputBlur() {
       var _this = this;
 
       this.inputFocus = false;
-      console.log(event);
-      console.log(this.$document);
       this.$timeout(function () {
         _this.autocompleteVisible = _this.hostFocus;
       });
