@@ -1,4 +1,4 @@
-## angularjs-input-tags 
+# angularjs-input-tags 
 
 [![GitHub release][badge-release-img]][badge-release-lnk]
 [![Dependencies Status][badge-dependencies-img]][badge-dependencies-lnk]
@@ -8,15 +8,17 @@
 [![Code Climate Issues][badge-code-climate-issues-img]][badge-code-climate-issues-lnk]
 [![License][badge-license-img]][badge-license-lnk]
 
+AngularJS component to manage tags in input with dropdown selector themed with Bootstrap
+
 ### TL;DR
 
 - Demo and docs: [https://heyprof.github.io/angularjs-input-tags/](https://heyprof.github.io/angularjs-input-tags/)
 - Install with npm: `npm install angularjs-input-tags --save`
 - Install with bower: `bower install angularjs-input-tags --save`
 - Develop with `npm install` and `npm run serve`
-- Contrib with fork, `npm install`, develop things, `npm run build` and fork request 
+- Contrib with fork, `npm install`, develop things, `npm run build` and fork request
 
-### Technical specs:
+### Specs:
 
 Features:
 - Easy AngularJS 1.5+ Component
@@ -48,7 +50,6 @@ That's it, you can create fork and submit your updates :)
 
 Technical TODOs:
 - Yarn ?
-- Deploy on npm repos
 - create doc with dgeni
 - Create tests
 
