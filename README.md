@@ -1,4 +1,4 @@
-## angularjs-input-tags [![GitHub release](https://img.shields.io/github/release/heyprof/angularjs-input-tags/all.svg?style=flat-square)](https://github.com/heyprof/angularjs-input-tags/releases) [![Dependencies Status](https://img.shields.io/gemnasium/heyprof/angularjs-input-tags.svg?style=flat-square)](https://gemnasium.com/github.com/heyprof/angularjs-input-tags) [![Travis CI Status](https://img.shields.io/travis/heyprof/angularjs-input-tags.svg?style=flat-square&label=TravisCI)](https://travis-ci.org/heyprof/angularjs-input-tags) [![Code Climate Status](https://img.shields.io/codeclimate/github/heyprof/angularjs-input-tags.svg?style=flat-square)](https://codeclimate.com/github/heyprof/angularjs-input-tags) [![Code Climate Issues](https://img.shields.io/codeclimate/issues/github/heyprof/angularjs-input-tags.svg?style=flat-square)](https://codeclimate.com/github/heyprof/angularjs-input-tags/issues)
+## angularjs-input-tags [![GitHub release][badge-release-img]][badge-release-lnk] [![Dependencies Status][badge-dependencies-img]][badge-dependencies-lnk] [![Dev Dependencies Status][badge-dev-dependencies-img]][badge-dev-dependencies-lnk] [![Travis CI Status][badge-travis-img]][badge-travis-lnk] [![Code Climate Status][badge-code-climate-status-img]][badge-code-climate-status-lnk] [![Code Climate Issues][badge-code-climate-issues-img]][badge-code-climate-issues-lnk] [![License][badge-license-img]][badge-license-lnk]
 
 ### TL;DR
 
@@ -90,3 +90,18 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+[badge-release-img]: https://img.shields.io/github/release/heyprof/angularjs-input-tags/all.svg?style=flat-square
+[badge-release-lnk]: https://github.com/heyprof/angularjs-input-tags/releases
+[badge-dependencies-img]: https://img.shields.io/david/heyprof/angularjs-input-tags.svg?style=flat-square
+[badge-dependencies-lnk]: https://david-dm.org/heyprof/angularjs-input-tags
+[badge-dev-dependencies-img]: https://img.shields.io/david/dev/heyprof/angularjs-input-tags.svg?style=flat-square
+[badge-dev-dependencies-lnk]: https://david-dm.org/heyprof/angularjs-input-tags?type=dev
+[badge-travis-img]: https://img.shields.io/travis/heyprof/angularjs-input-tags.svg?style=flat-square&label=TravisCI
+[badge-travis-lnk]: https://travis-ci.org/heyprof/angularjs-input-tags
+[badge-code-climate-status-img]: https://img.shields.io/codeclimate/github/heyprof/angularjs-input-tags.svg?style=flat-square
+[badge-code-climate-status-lnk]: https://codeclimate.com/github/heyprof/angularjs-input-tags
+[badge-code-climate-issues-img]: https://img.shields.io/codeclimate/issues/github/heyprof/angularjs-input-tags.svg?style=flat-square
+[badge-code-climate-issues-lnk]: https://codeclimate.com/github/heyprof/angularjs-input-tags/issues
+[badge-license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
+[badge-license-lnk]: https://raw.githubusercontent.com/heyprof/angularjs-input-tags/master/LICENSE
