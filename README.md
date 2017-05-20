@@ -12,7 +12,7 @@ AngularJS component to manage tags in input with dropdown selector themed with B
 
 ### TL;DR
 
-- Demo and docs: [https://heyprof.github.io/angularjs-input-tags/](https://heyprof.github.io/angularjs-input-tags/)
+- Demo and docs: [https://heyprof.github.io/angularjs-input-tags/][site]
 - Install with npm: `npm install angularjs-input-tags --save`
 - Install with bower: `bower install angularjs-input-tags --save`
 - Develop with `npm install` and `npm run serve`
@@ -36,7 +36,7 @@ Incoming-features:
 
 ### Usage && Demo
 
-**See [https://heyprof.github.io/angularjs-input-tags/](https://heyprof.github.io/angularjs-input-tags/) for doc and demo.**
+**See [example page][site] for doc and demo.**
 
 ### Contrib
 
@@ -99,6 +99,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+[site]: https://heyprof.github.io/angularjs-input-file/
 
 [badge-release-img]: https://img.shields.io/github/release/heyprof/angularjs-input-tags/all.svg?style=flat-square
 [badge-release-lnk]: https://github.com/heyprof/angularjs-input-tags/releases
