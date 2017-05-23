@@ -316,12 +316,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  */
 var InputTags = function () {
   /** @ngInject */
-  InputTags.$inject = ["$timeout", "$document"];
-  function InputTags($timeout, $document) {
+  InputTags.$inject = ["$timeout"];
+  function InputTags($timeout) {
     _classCallCheck(this, InputTags);
 
     this.$timeout = $timeout;
-    this.$document = $document;
   }
 
   _createClass(InputTags, [{
@@ -331,11 +330,13 @@ var InputTags = function () {
       this.inputFocus = false;
       this.hostFocus = false;
 
+      this.tags = this.tags || [];
+      this.suggestions = this.suggestions || [];
       this.displayProperty = this.displayProperty || 'text';
       this.keyProperty = this.keyProperty || '';
       this.placeholder = this.placeholder || 'Add a tag';
       this.spellcheck = this.spellcheck || true;
-      this.minLength = this.minLength || 3;
+      this.minLength = this.minLength || 1;
       this.maxLength = this.maxLength || _inputTags.MAX_SAFE_INTEGER;
     }
   }, {

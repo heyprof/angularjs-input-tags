@@ -12,9 +12,8 @@ import './input-tags.style.scss';
  */
 class InputTags {
   /** @ngInject */
-  constructor($timeout, $document) {
+  constructor($timeout) {
     this.$timeout = $timeout;
-    this.$document = $document;
   }
 
   $onInit() {
@@ -28,7 +27,7 @@ class InputTags {
     this.keyProperty = this.keyProperty || '';
     this.placeholder = this.placeholder || 'Add a tag';
     this.spellcheck = this.spellcheck || true;
-    this.minLength = this.minLength || 3;
+    this.minLength = this.minLength || 1;
     this.maxLength = this.maxLength || MAX_SAFE_INTEGER;
   }
 
