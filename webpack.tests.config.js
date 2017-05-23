@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   devtool: 'inline-source-map',
   module: {
@@ -21,7 +19,8 @@ module.exports = {
       test: /\.js$/,
       exclude: [
         /node_modules/,
-        /\.spec\.js$/
+        /\.spec\.js$/,
+        /dev-server\.js/
       ],
       loader: 'istanbul-instrumenter-loader',
       query: {
