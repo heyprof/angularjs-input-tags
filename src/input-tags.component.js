@@ -22,6 +22,8 @@ class InputTags {
     this.inputFocus = false;
     this.hostFocus = false;
 
+    this.tags = this.tags || [];
+    this.suggestions = this.suggestions || [];
     this.displayProperty = this.displayProperty || 'text';
     this.keyProperty = this.keyProperty || '';
     this.placeholder = this.placeholder || 'Add a tag';
