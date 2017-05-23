@@ -1,25 +1,26 @@
 describe('input-tags', () => {
-  let element;
-  let scope;
+  let $componentController;
 
-  beforeEach(inject((_$rootScope_, _$compile_) => {
-    const $compile = _$compile_;
-    scope = _$rootScope_.$new();
-
-    element = angular.element('<div>test</div>');
-
-    $compile(element)(scope);
+  beforeEach(angular.mock.module('angularjs-input-tags'));
+  beforeEach(angular.mock.inject(_$componentController_ => {
+    $componentController = _$componentController_;
   }));
 
-  it('should dummy test pass', () => {
-    const expected = 'test';
-    scope.item = {
-      name: expected,
-      active: false
-    };
+  describe('addTag', () => {
+    it('should emit `onTagAdding` callback', () => {
+      const onTagAddingSpy = jasmine.createSpy('onTagAdding');
+      const bindings = {onTagAdding: onTagAddingSpy};
+      const ctrl = $componentController('inputTags', undefined, bindings);
+      ctrl.$onInit();
+      ctrl.addTag({code: 1, text: '1'});
+      expect(onTagAddingSpy).toHaveBeenCalledWith({code: 1, text: '1'});
+    });
 
-    scope.$digest();
-
-    expect(element.text()).toContain(expected);
+    it('should update tag list', () => {
+      const ctrl = $componentController('inputTags');
+      ctrl.$onInit();
+      ctrl.addTag({code: 1, text: '1'});
+      expect(ctrl.tags).toContain({code: 1, text: '1'});
+    });
   });
 });
