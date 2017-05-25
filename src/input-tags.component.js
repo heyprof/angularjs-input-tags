@@ -24,13 +24,6 @@ class InputTags {
     this.maxLength = this.maxLength || MAX_SAFE_INTEGER;
   }
 
-  inputText(value) {
-    if (angular.isDefined(value)) {
-      this.text = value;
-    }
-    return this.text || '';
-  }
-
   track(tag) {
     return tag[this.keyProperty || this.displayProperty];
   }
