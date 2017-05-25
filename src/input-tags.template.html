@@ -1,7 +1,7 @@
 <div class="host input-group"
      tabindex="-1"
-     data-ng-blur="$ctrl.triggerHostBlur($event)"
-     data-ng-focus="$ctrl.triggerHostFocus($event)">
+     data-ng-blur="$ctrl.triggerBlur($event)"
+     data-ng-focus="$ctrl.triggerFocus($event)">
   <div class="input-group-addon"
        data-ng-repeat="tag in $ctrl.tags track by $ctrl.track(tag)">
     <span class="tag-text" data-ng-bind="::$ctrl.getTagText(tag)"></span>
@@ -24,7 +24,7 @@
          data-ng-disabled="$ctrl.disabled"
          data-ng-model="$ctrl.inputText"
          data-ng-model-options="{getterSetter: true}"
-         data-ng-focus="$ctrl.triggerInputFocus($event)"
-         data-ng-blur="$ctrl.triggerInputBlur($event)"
+         data-ng-focus="$ctrl.triggerFocus($event)"
+         data-ng-blur="$ctrl.triggerBlur($event)"
          data-ng-paste="$ctrl.inputPaste($event)">
 </div>

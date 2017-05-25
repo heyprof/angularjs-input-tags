@@ -70,7 +70,7 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"host input-group\"\n     tabindex=\"-1\"\n     data-ng-blur=\"$ctrl.triggerHostBlur($event)\"\n     data-ng-focus=\"$ctrl.triggerHostFocus($event)\">\n  <div class=\"input-group-addon\"\n       data-ng-repeat=\"tag in $ctrl.tags track by $ctrl.track(tag)\">\n    <span class=\"tag-text\" data-ng-bind=\"::$ctrl.getTagText(tag)\"></span>\n    <span style=\"cursor: pointer\" ng-click=\"$ctrl.removeTag(tag)\">\n      &nbsp;&#x274c;\n    </span>\n  </div>\n\n  <input-tags-auto-complete source=\"$ctrl.suggestions\"\n                 on-tag-add=\"$ctrl.addTag(tag)\"\n                 visible=\"$ctrl.autocompleteVisible\"></input-tags-auto-complete>\n\n  <input class=\"form-control\"\n         autocomplete=\"off\"\n         data-ng-trim=\"false\"\n         type=\"text\"\n         tabindex=\"{{$ctrl.tabindex}}\"\n         placeholder=\"{{$ctrl.placeholder}}\"\n         spellcheck=\"{{$ctrl.spellcheck}}\"\n         data-ng-disabled=\"$ctrl.disabled\"\n         data-ng-model=\"$ctrl.inputText\"\n         data-ng-model-options=\"{getterSetter: true}\"\n         data-ng-focus=\"$ctrl.triggerInputFocus($event)\"\n         data-ng-blur=\"$ctrl.triggerInputBlur($event)\"\n         data-ng-paste=\"$ctrl.inputPaste($event)\">\n</div>";
+module.exports = "<div class=\"host input-group\"\n     tabindex=\"-1\"\n     data-ng-blur=\"$ctrl.triggerBlur($event)\"\n     data-ng-focus=\"$ctrl.triggerFocus($event)\">\n  <div class=\"input-group-addon\"\n       data-ng-repeat=\"tag in $ctrl.tags track by $ctrl.track(tag)\">\n    <span class=\"tag-text\" data-ng-bind=\"::$ctrl.getTagText(tag)\"></span>\n    <span style=\"cursor: pointer\" ng-click=\"$ctrl.removeTag(tag)\">\n      &nbsp;&#x274c;\n    </span>\n  </div>\n\n  <input-tags-auto-complete source=\"$ctrl.suggestions\"\n                 on-tag-add=\"$ctrl.addTag(tag)\"\n                 visible=\"$ctrl.autocompleteVisible\"></input-tags-auto-complete>\n\n  <input class=\"form-control\"\n         autocomplete=\"off\"\n         data-ng-trim=\"false\"\n         type=\"text\"\n         tabindex=\"{{$ctrl.tabindex}}\"\n         placeholder=\"{{$ctrl.placeholder}}\"\n         spellcheck=\"{{$ctrl.spellcheck}}\"\n         data-ng-disabled=\"$ctrl.disabled\"\n         data-ng-model=\"$ctrl.inputText\"\n         data-ng-model-options=\"{getterSetter: true}\"\n         data-ng-focus=\"$ctrl.triggerFocus($event)\"\n         data-ng-blur=\"$ctrl.triggerBlur($event)\"\n         data-ng-paste=\"$ctrl.inputPaste($event)\">\n</div>";
 
 /***/ }),
 /* 1 */
@@ -315,20 +315,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * Renders an input box with tag editing support.
  */
 var InputTags = function () {
-  /** @ngInject */
-  InputTags.$inject = ["$timeout"];
-  function InputTags($timeout) {
+  function InputTags() {
     _classCallCheck(this, InputTags);
-
-    this.$timeout = $timeout;
   }
 
   _createClass(InputTags, [{
     key: '$onInit',
     value: function $onInit() {
       this.autocompleteVisible = false;
-      this.inputFocus = false;
-      this.hostFocus = false;
 
       this.tags = this.tags || [];
       this.suggestions = this.suggestions || [];
@@ -389,35 +383,14 @@ var InputTags = function () {
       return tag;
     }
   }, {
-    key: 'triggerInputFocus',
-    value: function triggerInputFocus() {
-      this.inputFocus = true;
+    key: 'triggerFocus',
+    value: function triggerFocus() {
       this.autocompleteVisible = true;
     }
   }, {
-    key: 'triggerInputBlur',
-    value: function triggerInputBlur() {
-      var _this = this;
-
-      this.inputFocus = false;
-      this.$timeout(function () {
-        _this.autocompleteVisible = _this.hostFocus;
-      });
-    }
-  }, {
-    key: 'triggerHostFocus',
-    value: function triggerHostFocus() {
-      this.hostFocus = true;
-    }
-  }, {
-    key: 'triggerHostBlur',
-    value: function triggerHostBlur() {
-      var _this2 = this;
-
-      this.hostFocus = false;
-      this.$timeout(function () {
-        _this2.autocompleteVisible = _this2.inputFocus;
-      });
+    key: 'triggerBlur',
+    value: function triggerBlur() {
+      this.autocompleteVisible = false;
     }
   }]);
 

@@ -11,15 +11,8 @@ import './input-tags.style.scss';
  * Renders an input box with tag editing support.
  */
 class InputTags {
-  /** @ngInject */
-  constructor($timeout) {
-    this.$timeout = $timeout;
-  }
-
   $onInit() {
     this.autocompleteVisible = false;
-    this.inputFocus = false;
-    this.hostFocus = false;
 
     this.tags = this.tags || [];
     this.suggestions = this.suggestions || [];
@@ -74,27 +67,12 @@ class InputTags {
     return tag;
   }
 
-  triggerInputFocus() {
-    this.inputFocus = true;
+  triggerFocus() {
     this.autocompleteVisible = true;
   }
 
-  triggerInputBlur() {
-    this.inputFocus = false;
-    this.$timeout(() => {
-      this.autocompleteVisible = this.hostFocus;
-    });
-  }
-
-  triggerHostFocus() {
-    this.hostFocus = true;
-  }
-
-  triggerHostBlur() {
-    this.hostFocus = false;
-    this.$timeout(() => {
-      this.autocompleteVisible = this.inputFocus;
-    });
+  triggerBlur() {
+    this.autocompleteVisible = false;
   }
 }
 
