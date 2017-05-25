@@ -70,7 +70,7 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"host input-group\"\n     tabindex=\"-1\"\n     data-ng-blur=\"$ctrl.triggerBlur($event)\"\n     data-ng-focus=\"$ctrl.triggerFocus($event)\">\n  <div class=\"input-group-addon\"\n       data-ng-repeat=\"tag in $ctrl.tags track by $ctrl.track(tag)\">\n    <span class=\"tag-text\" data-ng-bind=\"::$ctrl.getTagText(tag)\"></span>\n    <span style=\"cursor: pointer\" ng-click=\"$ctrl.removeTag(tag)\">\n      &nbsp;&#x274c;\n    </span>\n  </div>\n\n  <input-tags-auto-complete source=\"$ctrl.suggestions\"\n                 on-tag-add=\"$ctrl.addTag(tag)\"\n                 visible=\"$ctrl.autocompleteVisible\"></input-tags-auto-complete>\n\n  <input class=\"form-control\"\n         autocomplete=\"off\"\n         data-ng-trim=\"false\"\n         type=\"text\"\n         tabindex=\"{{$ctrl.tabindex}}\"\n         placeholder=\"{{$ctrl.placeholder}}\"\n         spellcheck=\"{{$ctrl.spellcheck}}\"\n         data-ng-disabled=\"$ctrl.disabled\"\n         data-ng-model=\"$ctrl.inputText\"\n         data-ng-model-options=\"{getterSetter: true}\"\n         data-ng-focus=\"$ctrl.triggerFocus($event)\"\n         data-ng-blur=\"$ctrl.triggerBlur($event)\"\n         data-ng-paste=\"$ctrl.inputPaste($event)\">\n</div>";
+module.exports = "<div class=\"host input-group\"\n     tabindex=\"-1\"\n     data-ng-blur=\"$ctrl.triggerBlur($event)\"\n     data-ng-focus=\"$ctrl.triggerFocus($event)\">\n  <div class=\"input-group-addon\"\n       data-ng-repeat=\"tag in $ctrl.tags track by $ctrl.track(tag)\">\n    <span class=\"tag-text\" data-ng-bind=\"::$ctrl.getTagText(tag)\"></span>\n    <span style=\"cursor: pointer\" ng-click=\"$ctrl.removeTag(tag)\">\n      &nbsp;&#x274c;\n    </span>\n  </div>\n\n  <input-tags-auto-complete source=\"$ctrl.suggestions\"\n                 on-tag-add=\"$ctrl.addTag(tag)\"\n                 visible=\"$ctrl.autocompleteVisible\"></input-tags-auto-complete>\n\n  <input class=\"form-control\"\n         autocomplete=\"off\"\n         data-ng-trim=\"false\"\n         type=\"text\"\n         tabindex=\"{{$ctrl.tabindex}}\"\n         placeholder=\"{{$ctrl.placeholder}}\"\n         spellcheck=\"{{$ctrl.spellcheck}}\"\n         data-ng-disabled=\"$ctrl.disabled\"\n         data-ng-focus=\"$ctrl.triggerFocus($event)\"\n         data-ng-blur=\"$ctrl.triggerBlur($event)\">\n</div>";
 
 /***/ }),
 /* 1 */
@@ -332,14 +332,6 @@ var InputTags = function () {
       this.spellcheck = this.spellcheck || true;
       this.minLength = this.minLength || 1;
       this.maxLength = this.maxLength || _inputTags.MAX_SAFE_INTEGER;
-    }
-  }, {
-    key: 'inputText',
-    value: function inputText(value) {
-      if (angular.isDefined(value)) {
-        this.text = value;
-      }
-      return this.text || '';
     }
   }, {
     key: 'track',
