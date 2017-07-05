@@ -13,8 +13,7 @@ angular.module('dev-server', ['angularjs-input-tags'])
       disabled="$ctrl.disabled"
       key-property="code"
       display-property="title"
-      input-search="$ctrl.inputSearch"
-      get-suggestions="$ctrl.getSuggestions"
+      get-suggestions="$ctrl.updateSuggestions"
       min-length="1"></input-tags>`,
     controller: searchCtrl
   });
@@ -23,22 +22,31 @@ function searchCtrl() {
   const vm = this;
 
   vm.$onInit = () => {
-    vm.inputSearch = '';
     vm.tags = [];
     vm.disabled = false;
     vm.suggestions = {title: '', data: []};
-    vm.getSuggestions();
+    vm.updateSuggestions();
   };
 
-  function flat(r, a) {
-    r.push(a);
-    if (Array.isArray(a.data)) {
-      return a.data.reduce(flat, r);
+  function flat(accumulator, currentValue) {
+    accumulator.push(currentValue);
+    if (Array.isArray(currentValue.data)) {
+      return currentValue.data.reduce(flat, accumulator);
     }
-    return r;
+    return accumulator;
   }
 
-  vm.getSuggestions = search => {
+  vm.updateSuggestions = search => {
+    const newSuggestions = searchSuggestions(search);
+
+    vm.suggestions.data.length = 0;
+    vm.suggestions.title = newSuggestions.title;
+    Array.prototype.push.apply(vm.suggestions.data, newSuggestions.data);
+
+    console.log('devServer:getSuggestions.suggestions', vm.suggestions);
+  };
+
+  function searchSuggestions(search) {
     const mock = {
       title: 'root',
       data: [
@@ -93,14 +101,11 @@ function searchCtrl() {
       ]
     };
 
-    const result = search ? mock.data.reduce(flat, []).filter(elem => {
-      return String(elem.title).indexOf(String(search)) >= 0;
-    }) : mock.data;
-
-    vm.suggestions.data.length = 0;
-    vm.suggestions.title = mock.title;
-    Array.prototype.push.apply(vm.suggestions.data, result);
-
-    console.log('devServer:getSuggestions.suggestions', vm.suggestions);
-  };
+    return {
+      title: mock.title,
+      data: (search ? mock.data.reduce(flat, []).filter(elem => {
+        return String(elem.title).indexOf(String(search)) >= 0;
+      }) : mock.data)
+    };
+  }
 }
