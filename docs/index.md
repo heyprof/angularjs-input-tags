@@ -9,6 +9,7 @@
             suggestions="$ctrl.suggestions"
             key-property="code"
             display-property="title"
+            get-suggestions="$ctrl.updateSuggestions"
             min-length="1">
 </input-tags>
 
@@ -26,6 +27,7 @@ And the component where you want in this app:
 <input-tags tags="$sctrl.tags"
             suggestions="$ctrl.suggestions"
             key-property="code"
+            get-suggestions="$ctrl.updateSuggestions"
             display-property="title">
 </input-tags>
 ```
@@ -38,19 +40,29 @@ angular.module('app').controller('SearchController', searchCtrl);
 function searchCtrl() {
   const vm = this;
   
-  vm.tags = [{
-    code: 'default',
-    title: 'root'
-  }];
+  vm.$onInit = () => {
+    vm.tags = [{
+      code: 'default',
+      title: 'root'
+    }];
 
-  vm.suggestions = {
-    title: 'root',
-    data: [{
-      code: 1,
-      title: '1',
-      data: [/* Another nested list of items for multilevel purposes */]},
-    ]
-  };
+    vm.suggestions = {
+      title: 'root',
+      data: [{
+        code: 1,
+        title: '1',
+        data: [/* Another nested list of items for multilevel purposes */]},
+      ]
+    };
+  }
+
+  vm.updateSuggestions = search => {
+    const newSuggestions = getNewSuggestionsFunctions(search);
+
+    vm.suggestions.title = newSuggestions.title;
+    vm.suggestions.data.length = 0;
+    Array.push.apply(vm.suggestions.data, newSuggestions.data);
+  }
 }
 ```
 
