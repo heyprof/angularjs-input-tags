@@ -70,7 +70,7 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"host input-group\"\n     tabindex=\"-1\"\n     data-ng-blur=\"$ctrl.triggerBlur($event)\"\n     data-ng-focus=\"$ctrl.triggerFocus($event)\">\n  <div class=\"input-group-addon\"\n       data-ng-repeat=\"tag in $ctrl.tags track by $ctrl.track(tag)\">\n    <span class=\"tag-text\" data-ng-bind=\"::$ctrl.getTagText(tag)\"></span>\n    <span style=\"cursor: pointer\" ng-click=\"$ctrl.removeTag(tag)\">\n      &nbsp;&#x274c;\n    </span>\n  </div>\n\n  <input-tags-auto-complete source=\"$ctrl.suggestions\"\n                 on-tag-add=\"$ctrl.addTag(tag)\"\n                 visible=\"$ctrl.autocompleteVisible\"></input-tags-auto-complete>\n\n  <input class=\"form-control\"\n         autocomplete=\"off\"\n         data-ng-trim=\"false\"\n         type=\"text\"\n         tabindex=\"{{$ctrl.tabindex}}\"\n         placeholder=\"{{$ctrl.placeholder}}\"\n         spellcheck=\"{{$ctrl.spellcheck}}\"\n         data-ng-disabled=\"$ctrl.disabled\"\n         data-ng-focus=\"$ctrl.triggerFocus($event)\"\n         data-ng-blur=\"$ctrl.triggerBlur($event)\">\n</div>";
+module.exports = "<div class=\"host input-group\"\n     tabindex=\"-1\"\n     data-ng-blur=\"$ctrl.triggerBlur($event)\"\n     data-ng-focus=\"$ctrl.triggerFocus($event)\">\n  <div class=\"input-group-addon\"\n       data-ng-repeat=\"tag in $ctrl.tags track by $ctrl.track(tag)\">\n    <span class=\"tag-text\" data-ng-bind=\"::$ctrl.getTagText(tag)\"></span>\n    <span style=\"cursor: pointer\" ng-click=\"$ctrl.removeTag(tag)\">\n      &nbsp;&#x274c;\n    </span>\n  </div>\n\n  <input-tags-auto-complete source=\"$ctrl.suggestions\"\n                            on-tag-add=\"$ctrl.addTag(tag)\"\n                            visible=\"$ctrl.autocompleteVisible\"></input-tags-auto-complete>\n\n  <input class=\"form-control\"\n         autocomplete=\"off\"\n         data-ng-trim=\"false\"\n         type=\"text\"\n         tabindex=\"{{$ctrl.tabindex}}\"\n         placeholder=\"{{$ctrl.placeholder}}\"\n         spellcheck=\"{{$ctrl.spellcheck}}\"\n         data-ng-model=\"$ctrl.inputSearch\"\n         ng-model-options=\"{ debounce: $ctrl.inputDebounce }\"\n         data-ng-change=\"$ctrl.inputChange()\"\n         data-ng-disabled=\"$ctrl.disabled\"\n         data-ng-focus=\"$ctrl.triggerFocus($event)\"\n         data-ng-blur=\"$ctrl.triggerBlur($event)\">\n</div>";
 
 /***/ }),
 /* 1 */
@@ -283,7 +283,7 @@ function toComment(sourceMap) {
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = "<ul uib-dropdown-menu\n    ng-class=\"{display: $ctrl.visible}\"\n    class=\"dropdown-menu\"\n    role=\"menu\">\n  <li ng-if=\"$ctrl.path.length > 0\">\n    <a ng-click=\"$ctrl.previous()\">&lt;&nbsp;{{$ctrl.currentItem.title}}</a>\n  </li>\n  <li ng-if=\"$ctrl.path.length === 0\"><span>Root</span></li>\n  <li role=\"menuitem\"\n      class=\"menuitem\"\n      ng-repeat=\"item in $ctrl.currentItem.data track by item.code\">\n    <a ng-if=\"item.data && item.data.length > 0\"\n       ng-click=\"$ctrl.next(item)\">\n      {{item.title}}&nbsp;&gt;\n    </a>\n    <a ng-if=\"!item.data || item.data.length <= 0\"\n       ng-click=\"$ctrl.addTag(item)\">\n      {{item.title}}\n    </a>\n  </li>\n</ul>\n";
+module.exports = "<ul uib-dropdown-menu\n    ng-class=\"{display: $ctrl.visible}\"\n    class=\"dropdown-menu\"\n    role=\"menu\">\n  <li>\n    <a ng-if=\"$ctrl.path.length > 0\"\n       ng-click=\"$ctrl.previous()\">\n      &lt;&nbsp;{{$ctrl.currentItem.title}}\n    </a>\n    <span ng-if=\"$ctrl.path.length === 0\">\n      {{$ctrl.currentItem.title}}\n    </span>\n  </li>\n  <li role=\"menuitem\"\n      class=\"menuitem\"\n      ng-repeat=\"item in $ctrl.currentItem.data track by item.code\">\n    <a ng-if=\"item.data && item.data.length > 0\"\n       ng-click=\"$ctrl.next(item)\">\n      {{item.title}}&nbsp;&gt;\n    </a>\n    <a ng-if=\"!item.data || item.data.length <= 0\"\n       ng-click=\"$ctrl.addTag(item)\">\n      {{item.title}}\n    </a>\n  </li>\n</ul>\n";
 
 /***/ }),
 /* 7 */
@@ -325,13 +325,14 @@ var InputTags = function () {
       this.autocompleteVisible = false;
 
       this.tags = this.tags || [];
-      this.suggestions = this.suggestions || [];
+      this.suggestions = this.suggestions || {};
       this.displayProperty = this.displayProperty || 'text';
       this.keyProperty = this.keyProperty || '';
       this.placeholder = this.placeholder || 'Add a tag';
       this.spellcheck = this.spellcheck || true;
       this.minLength = this.minLength || 1;
       this.maxLength = this.maxLength || _inputTags.MAX_SAFE_INTEGER;
+      this.inputDebounce = this.inputDebounce || 125;
     }
   }, {
     key: 'track',
@@ -375,6 +376,13 @@ var InputTags = function () {
       return tag;
     }
   }, {
+    key: 'inputChange',
+    value: function inputChange() {
+      if (this.getSuggestions) {
+        this.getSuggestions(this.inputSearch);
+      }
+    }
+  }, {
     key: 'triggerFocus',
     value: function triggerFocus() {
       this.autocompleteVisible = true;
@@ -400,9 +408,11 @@ var InputTagsComponent = {
     spellcheck: '@',
     minLength: '@',
     maxLength: '@',
+    inputDebounce: '@',
     tags: '<',
     suggestions: '<',
     disabled: '<',
+    getSuggestions: '<',
     onTagAdding: '&',
     onTagAdded: '&',
     onTagRemoving: '&',
