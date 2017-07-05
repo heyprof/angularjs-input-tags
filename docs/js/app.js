@@ -11,7 +11,7 @@
     vm.$onInit = () => {
       vm.tags = [];
       vm.suggestions = {title: '', data: []};
-      vm.getSuggestions();
+      vm.updateSuggestions();
     };
 
     function flat(r, a) {
@@ -22,7 +22,7 @@
       return r;
     }
 
-    vm.getSuggestions = search => {
+    vm.updateSuggestions = search => {
       const mock = {
         title: 'root',
         data: [
