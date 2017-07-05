@@ -2,10 +2,15 @@
     ng-class="{display: $ctrl.visible}"
     class="dropdown-menu"
     role="menu">
-  <li ng-if="$ctrl.path.length > 0">
-    <a ng-click="$ctrl.previous()">&lt;&nbsp;{{$ctrl.currentItem.title}}</a>
+  <li>
+    <a ng-if="$ctrl.path.length > 0"
+       ng-click="$ctrl.previous()">
+      &lt;&nbsp;{{$ctrl.currentItem.title}}
+    </a>
+    <span ng-if="$ctrl.path.length === 0">
+      {{$ctrl.currentItem.title}}
+    </span>
   </li>
-  <li ng-if="$ctrl.path.length === 0"><span>Root</span></li>
   <li role="menuitem"
       class="menuitem"
       ng-repeat="item in $ctrl.currentItem.data track by item.code">
