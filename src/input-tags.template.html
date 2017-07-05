@@ -11,8 +11,8 @@
   </div>
 
   <input-tags-auto-complete source="$ctrl.suggestions"
-                 on-tag-add="$ctrl.addTag(tag)"
-                 visible="$ctrl.autocompleteVisible"></input-tags-auto-complete>
+                            on-tag-add="$ctrl.addTag(tag)"
+                            visible="$ctrl.autocompleteVisible"></input-tags-auto-complete>
 
   <input class="form-control"
          autocomplete="off"
@@ -21,6 +21,9 @@
          tabindex="{{$ctrl.tabindex}}"
          placeholder="{{$ctrl.placeholder}}"
          spellcheck="{{$ctrl.spellcheck}}"
+         data-ng-model="$ctrl.inputSearch"
+         ng-model-options="{ debounce: $ctrl.inputDebounce }"
+         data-ng-change="$ctrl.inputChange()"
          data-ng-disabled="$ctrl.disabled"
          data-ng-focus="$ctrl.triggerFocus($event)"
          data-ng-blur="$ctrl.triggerBlur($event)">

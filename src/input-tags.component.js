@@ -15,13 +15,14 @@ class InputTags {
     this.autocompleteVisible = false;
 
     this.tags = this.tags || [];
-    this.suggestions = this.suggestions || [];
+    this.suggestions = this.suggestions || {};
     this.displayProperty = this.displayProperty || 'text';
     this.keyProperty = this.keyProperty || '';
     this.placeholder = this.placeholder || 'Add a tag';
     this.spellcheck = this.spellcheck || true;
     this.minLength = this.minLength || 1;
     this.maxLength = this.maxLength || MAX_SAFE_INTEGER;
+    this.inputDebounce = this.inputDebounce || 125;
   }
 
   track(tag) {
@@ -60,6 +61,12 @@ class InputTags {
     return tag;
   }
 
+  inputChange() {
+    if (this.getSuggestions) {
+      this.getSuggestions(this.inputSearch);
+    }
+  }
+
   triggerFocus() {
     this.autocompleteVisible = true;
   }
@@ -80,9 +87,11 @@ const InputTagsComponent = {
     spellcheck: '@',
     minLength: '@',
     maxLength: '@',
+    inputDebounce: '@',
     tags: '<',
     suggestions: '<',
     disabled: '<',
+    getSuggestions: '<',
     onTagAdding: '&',
     onTagAdded: '&',
     onTagRemoving: '&',
