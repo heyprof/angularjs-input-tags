@@ -49,12 +49,12 @@ Finally, if you want generate the dist folder: `npm run build`
 That's it, you can create fork and submit your updates :)
 
 Technical TODOs:
-- Yarn ?
 - create doc with dgeni
 - Create tests
 
+Resources:
 - [Npm Guide](https://docs.npmjs.com/getting-started/publishing-npm-packages)
-- [Bower Guide](https://bower.io/docs/creating-packages/)
+- [Bower Guide (deprecated)](https://bower.io/docs/creating-packages/)
 
 ### Execute tests TODO
 
