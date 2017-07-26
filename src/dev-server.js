@@ -14,7 +14,8 @@ angular.module('dev-server', ['angularjs-input-tags'])
       key-property="code"
       display-property="title"
       get-suggestions="$ctrl.updateSuggestions"
-      min-length="1"></input-tags>`,
+      min-length="1"></input-tags>
+    <pre>{{$ctrl.tags | json}}</pre>`,
     controller: searchCtrl
   });
 
