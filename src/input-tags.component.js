@@ -53,7 +53,11 @@ class InputTags {
   }
 
   removeTag(tag) {
-    this.tags = this.tags.filter(obj => obj.code !== tag.code);
+    for (let i = this.tags.length - 1; i >= 0; i--) {
+      if (this.tags[i].code === tag.code) {
+        this.tags.splice(i, 1);
+      }
+    }
 
     if (this.onTagRemoving) {
       this.onTagRemoving(tag);
