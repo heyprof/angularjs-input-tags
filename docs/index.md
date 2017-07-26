@@ -12,7 +12,6 @@
             get-suggestions="$ctrl.updateSuggestions"
             min-length="1">
 </input-tags>
-<pre>{{$ctrl.tags | json}}</pre>
 
 ## Usage
 
