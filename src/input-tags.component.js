@@ -49,6 +49,10 @@ class InputTags {
       this.tags.push(tag);
     }
 
+    if (this.onTagAdded) {
+      this.onTagAdded(tag);
+    }
+
     return tag;
   }
 
