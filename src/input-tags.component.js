@@ -100,10 +100,10 @@ const InputTagsComponent = {
     suggestions: '<',
     disabled: '<',
     getSuggestions: '<',
-    onTagAdding: '&',
+    onTagAdding: '<',
     onTagAdded: '<',
-    onTagRemoving: '&',
-    onTagClicked: '&'
+    onTagRemoving: '<',
+    onTagClicked: '<'
   }
 };
 
