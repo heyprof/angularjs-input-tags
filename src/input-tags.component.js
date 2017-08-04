@@ -101,7 +101,7 @@ const InputTagsComponent = {
     disabled: '<',
     getSuggestions: '<',
     onTagAdding: '&',
-    onTagAdded: '&',
+    onTagAdded: '<',
     onTagRemoving: '&',
     onTagClicked: '&'
   }
