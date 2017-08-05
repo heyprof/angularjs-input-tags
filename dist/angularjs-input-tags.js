@@ -359,6 +359,12 @@ var InputTags = function () {
 
       if (valid) {
         this.tags.push(tag);
+
+        if (this.onTagAdded) {
+          this.onTagAdded(tag);
+        }
+      } else if (this.onTagAddFailed) {
+        this.onTagAddFailed(tag);
       }
 
       return tag;
@@ -415,10 +421,11 @@ var InputTagsComponent = {
     suggestions: '<',
     disabled: '<',
     getSuggestions: '<',
-    onTagAdding: '&',
-    onTagAdded: '&',
-    onTagRemoving: '&',
-    onTagClicked: '&'
+    onTagAdding: '<',
+    onTagAdded: '<',
+    onTagAddFailed: '<',
+    onTagRemoving: '<',
+    onTagClicked: '<'
   }
 };
 

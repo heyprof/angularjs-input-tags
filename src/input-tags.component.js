@@ -47,10 +47,12 @@ class InputTags {
 
     if (valid) {
       this.tags.push(tag);
-    }
 
-    if (this.onTagAdded) {
-      this.onTagAdded(tag);
+      if (this.onTagAdded) {
+        this.onTagAdded(tag);
+      }
+    } else if (this.onTagAddFailed) {
+      this.onTagAddFailed(tag);
     }
 
     return tag;
@@ -102,6 +104,7 @@ const InputTagsComponent = {
     getSuggestions: '<',
     onTagAdding: '<',
     onTagAdded: '<',
+    onTagAddFailed: '<',
     onTagRemoving: '<',
     onTagClicked: '<'
   }
