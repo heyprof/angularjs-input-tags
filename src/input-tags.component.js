@@ -78,6 +78,7 @@ class InputTags {
   }
 
   inputChange() {
+    // TODO: Rename `getSuggestions` into something like `inputChanged`
     if (this.getSuggestions) {
       this.getSuggestions(this.inputSearch);
     }
