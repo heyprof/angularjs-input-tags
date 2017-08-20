@@ -59,15 +59,21 @@ class InputTags {
   }
 
   removeTag(tag) {
+
+    if (this.onTagRemoving) {
+      this.onTagRemoving(tag);
+    }
+
     for (let i = this.tags.length - 1; i >= 0; i--) {
       if (this.tags[i].code === tag.code) {
         this.tags.splice(i, 1);
       }
     }
 
-    if (this.onTagRemoving) {
-      this.onTagRemoving(tag);
+    if (this.onTagRemoved) {
+      this.onTagRemoved(tag);
     }
+
     return tag;
   }
 
@@ -106,6 +112,7 @@ const InputTagsComponent = {
     onTagAdded: '<',
     onTagAddFailed: '<',
     onTagRemoving: '<',
+    onTagRemoved: '<',
     onTagClicked: '<'
   }
 };
