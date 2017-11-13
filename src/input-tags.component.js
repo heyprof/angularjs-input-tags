@@ -37,7 +37,7 @@ class InputTags {
     const tagText = this.getTagText(tag);
     const key = this.keyProperty || this.displayProperty;
     const valid = tagText &&
-      this.tags.length >= this.minLength &&
+      tagText.length >= this.minLength &&
       this.tags.length <= this.maxLength &&
       !this.tags.some(element => element[key] === tag[key]);
 
