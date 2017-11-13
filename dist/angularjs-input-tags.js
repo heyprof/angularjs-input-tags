@@ -349,7 +349,7 @@ var InputTags = function () {
     value: function addTag(tag) {
       var tagText = this.getTagText(tag);
       var key = this.keyProperty || this.displayProperty;
-      var valid = tagText && tagText.length >= this.minLength && this.tags.length <= this.maxLength && !this.tags.some(function (element) {
+      var valid = tagText && tagText.length >= this.minLength && this.tags.length < this.maxLength && !this.tags.some(function (element) {
         return element[key] === tag[key];
       });
 
