@@ -59,7 +59,6 @@ class InputTags {
   }
 
   removeTag(tag) {
-
     if (this.onTagRemoving) {
       this.onTagRemoving(tag);
     }
