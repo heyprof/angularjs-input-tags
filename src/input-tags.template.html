@@ -11,6 +11,7 @@
   </div>
 
   <input-tags-auto-complete source="$ctrl.suggestions"
+                            ng-if="$ctrl.maxLength > $ctrl.tags.length"
                             on-tag-add="$ctrl.addTag(tag)"
                             visible="$ctrl.autocompleteVisible"></input-tags-auto-complete>
 
@@ -20,6 +21,7 @@
          tabindex="{{$ctrl.tabindex}}"
          placeholder="{{$ctrl.placeholder}}"
          spellcheck="{{$ctrl.spellcheck}}"
+         data-ng-if="$ctrl.maxLength > $ctrl.tags.length"
          data-ng-model="$ctrl.inputSearch"
          ng-model-options="{ debounce: $ctrl.inputDebounce }"
          data-ng-change="$ctrl.inputChange()"
