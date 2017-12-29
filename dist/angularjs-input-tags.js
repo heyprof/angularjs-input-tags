@@ -70,7 +70,7 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"host input-group\"\n     tabindex=\"-1\"\n     data-ng-blur=\"$ctrl.triggerBlur($event)\"\n     data-ng-focus=\"$ctrl.triggerFocus($event)\">\n  <div class=\"input-group-addon\"\n       data-ng-repeat=\"tag in $ctrl.tags track by $ctrl.track(tag)\">\n    <span class=\"tag-text\" data-ng-bind=\"::$ctrl.getTagText(tag)\"></span>\n    <span style=\"cursor: pointer\" ng-click=\"$ctrl.removeTag(tag)\">\n      &nbsp;&#x274c;\n    </span>\n  </div>\n\n  <input-tags-auto-complete source=\"$ctrl.suggestions\"\n                            on-tag-add=\"$ctrl.addTag(tag)\"\n                            visible=\"$ctrl.autocompleteVisible\"></input-tags-auto-complete>\n\n  <input class=\"form-control\"\n         autocomplete=\"off\"\n         data-ng-trim=\"false\"\n         tabindex=\"{{$ctrl.tabindex}}\"\n         placeholder=\"{{$ctrl.placeholder}}\"\n         spellcheck=\"{{$ctrl.spellcheck}}\"\n         data-ng-model=\"$ctrl.inputSearch\"\n         ng-model-options=\"{ debounce: $ctrl.inputDebounce }\"\n         data-ng-change=\"$ctrl.inputChange()\"\n         data-ng-disabled=\"$ctrl.disabled\"\n         data-ng-focus=\"$ctrl.triggerFocus($event)\"\n         data-ng-blur=\"$ctrl.triggerBlur($event)\">\n</div>";
+module.exports = "<div class=\"host input-group\"\n     tabindex=\"-1\"\n     data-ng-blur=\"$ctrl.triggerBlur($event)\"\n     data-ng-focus=\"$ctrl.triggerFocus($event)\">\n  <div class=\"input-group-addon\"\n       data-ng-repeat=\"tag in $ctrl.tags track by $ctrl.track(tag)\">\n    <span class=\"tag-text\" data-ng-bind=\"::$ctrl.getTagText(tag)\"></span>\n    <span style=\"cursor: pointer\" ng-click=\"$ctrl.removeTag(tag)\">\n      &nbsp;&#x274c;\n    </span>\n  </div>\n\n  <input-tags-auto-complete source=\"$ctrl.suggestions\"\n                            ng-if=\"$ctrl.maxLength > $ctrl.tags.length\"\n                            on-tag-add=\"$ctrl.addTag(tag)\"\n                            visible=\"$ctrl.autocompleteVisible\"></input-tags-auto-complete>\n\n  <input class=\"form-control\"\n         autocomplete=\"off\"\n         data-ng-trim=\"false\"\n         tabindex=\"{{$ctrl.tabindex}}\"\n         placeholder=\"{{$ctrl.placeholder}}\"\n         spellcheck=\"{{$ctrl.spellcheck}}\"\n         data-ng-if=\"$ctrl.maxLength > $ctrl.tags.length\"\n         data-ng-model=\"$ctrl.inputSearch\"\n         ng-model-options=\"{ debounce: $ctrl.inputDebounce }\"\n         data-ng-change=\"$ctrl.inputChange()\"\n         data-ng-disabled=\"$ctrl.disabled\"\n         data-ng-focus=\"$ctrl.triggerFocus($event)\"\n         data-ng-blur=\"$ctrl.triggerBlur($event)\">\n</div>\n";
 
 /***/ }),
 /* 1 */
@@ -330,7 +330,6 @@ var InputTags = function () {
       this.keyProperty = this.keyProperty || '';
       this.placeholder = this.placeholder || 'Add a tag';
       this.spellcheck = this.spellcheck || true;
-      this.minLength = this.minLength || 1;
       this.maxLength = this.maxLength || _inputTags.MAX_SAFE_INTEGER;
       this.inputDebounce = this.inputDebounce || 125;
     }
@@ -349,7 +348,7 @@ var InputTags = function () {
     value: function addTag(tag) {
       var tagText = this.getTagText(tag);
       var key = this.keyProperty || this.displayProperty;
-      var valid = tagText && this.tags.length >= this.minLength && this.tags.length <= this.maxLength && !this.tags.some(function (element) {
+      var valid = tagText && this.tags.length <= this.maxLength && !this.tags.some(function (element) {
         return element[key] === tag[key];
       });
 
@@ -420,7 +419,6 @@ var InputTagsComponent = {
     placeholder: '@',
     tabindex: '@',
     spellcheck: '@',
-    minLength: '@',
     maxLength: '@',
     inputDebounce: '@',
     tags: '<',
