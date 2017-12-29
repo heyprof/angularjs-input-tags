@@ -20,7 +20,6 @@ class InputTags {
     this.keyProperty = this.keyProperty || '';
     this.placeholder = this.placeholder || 'Add a tag';
     this.spellcheck = this.spellcheck || true;
-    this.minLength = this.minLength || 1;
     this.maxLength = this.maxLength || MAX_SAFE_INTEGER;
     this.inputDebounce = this.inputDebounce || 125;
   }
@@ -37,7 +36,6 @@ class InputTags {
     const tagText = this.getTagText(tag);
     const key = this.keyProperty || this.displayProperty;
     const valid = tagText &&
-      this.tags.length >= this.minLength &&
       this.tags.length <= this.maxLength &&
       !this.tags.some(element => element[key] === tag[key]);
 
@@ -101,7 +99,6 @@ const InputTagsComponent = {
     placeholder: '@',
     tabindex: '@',
     spellcheck: '@',
-    minLength: '@',
     maxLength: '@',
     inputDebounce: '@',
     tags: '<',

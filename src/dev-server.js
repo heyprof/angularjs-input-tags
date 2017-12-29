@@ -13,8 +13,7 @@ angular.module('dev-server', ['angularjs-input-tags'])
       disabled="$ctrl.disabled"
       key-property="code"
       display-property="title"
-      get-suggestions="$ctrl.updateSuggestions"
-      min-length="1"></input-tags>
+      get-suggestions="$ctrl.updateSuggestions"></input-tags>
     <pre>{{$ctrl.tags | json}}</pre>`,
     controller: searchCtrl
   });
