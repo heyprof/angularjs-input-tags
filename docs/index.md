@@ -9,8 +9,7 @@
             suggestions="$ctrl.suggestions"
             key-property="code"
             display-property="title"
-            get-suggestions="$ctrl.updateSuggestions"
-            min-length="1">
+            get-suggestions="$ctrl.updateSuggestions">
 </input-tags>
 
 ## Usage
@@ -39,7 +38,7 @@ angular.module('app').controller('SearchController', searchCtrl);
 
 function searchCtrl() {
   const vm = this;
-  
+
   vm.$onInit = () => {
     vm.tags = [{
       code: 'default',
