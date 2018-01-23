@@ -5,10 +5,10 @@
   <li>
     <a ng-if="$ctrl.path.length > 0"
        ng-click="$ctrl.previous()">
-      &lt;&nbsp;{{$ctrl.currentItem.title}}
+      &lt;&nbsp;{{ $ctrl.currentItem[$ctrl.displayProperty] }}
     </a>
     <span ng-if="$ctrl.path.length === 0">
-      {{$ctrl.currentItem.title}}
+      {{ $ctrl.currentItem[$ctrl.displayProperty] }}
     </span>
   </li>
   <li role="menuitem"
@@ -16,11 +16,11 @@
       ng-repeat="item in $ctrl.currentItem.data track by item.code">
     <a ng-if="item.data && item.data.length > 0"
        ng-click="$ctrl.next(item)">
-      {{item.title}}&nbsp;&gt;
+      {{ item[$ctrl.displayProperty] }}&nbsp;&gt;
     </a>
     <a ng-if="!item.data || item.data.length <= 0"
        ng-click="$ctrl.addTag(item)">
-      {{item.title}}
+      {{ item[$ctrl.displayProperty] }}
     </a>
   </li>
 </ul>

@@ -12,6 +12,7 @@
 
   <input-tags-auto-complete source="$ctrl.suggestions"
                             ng-if="$ctrl.maxLength > $ctrl.tags.length"
+                            display-property="$ctrl.displayProperty"
                             on-tag-add="$ctrl.addTag(tag)"
                             visible="$ctrl.autocompleteVisible"></input-tags-auto-complete>
 

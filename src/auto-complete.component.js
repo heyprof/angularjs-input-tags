@@ -31,6 +31,7 @@ export default {
   template: require('./auto-complete.template.html'),
   controller: AutoComplete,
   bindings: {
+    displayProperty: '@',
     source: '<',
     matchClass: '<',
     visible: '=',
