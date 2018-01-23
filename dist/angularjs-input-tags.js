@@ -287,7 +287,7 @@ exports.default = {
   template: __webpack_require__(3),
   controller: AutoComplete,
   bindings: {
-    displayProperty: '@',
+    displayProperty: '<',
     source: '<',
     matchClass: '<',
     visible: '=',
