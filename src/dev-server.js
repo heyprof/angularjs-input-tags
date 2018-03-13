@@ -41,8 +41,6 @@ function searchCtrl() {
     vm.suggestions.data.length = 0;
     vm.suggestions.title = newSuggestions.title;
     Array.prototype.push.apply(vm.suggestions.data, newSuggestions.data);
-
-    console.log('devServer:getSuggestions.suggestions', vm.suggestions);
   };
 
   function searchSuggestions(search) {
