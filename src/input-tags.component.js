@@ -1,5 +1,4 @@
 import {MAX_SAFE_INTEGER} from './input-tags.constants';
-import AutoCompleteComponent from './auto-complete.component';
 import './input-tags.style.scss';
 
 /**
@@ -11,8 +10,13 @@ import './input-tags.style.scss';
  * Renders an input box with tag editing support.
  */
 class InputTags {
+  constructor($element) {
+    this.$element = $element;
+  }
+
   $onInit() {
     this.autocompleteVisible = false;
+    this.element = this.$element[0];
 
     this.tags = this.tags || [];
     this.suggestions = this.suggestions || {};
@@ -22,6 +26,8 @@ class InputTags {
     this.spellcheck = this.spellcheck || true;
     this.maxLength = this.maxLength || MAX_SAFE_INTEGER;
     this.inputDebounce = this.inputDebounce || 125;
+
+    this.reset();
   }
 
   track(tag) {
@@ -85,8 +91,30 @@ class InputTags {
     this.autocompleteVisible = true;
   }
 
-  triggerBlur() {
-    this.autocompleteVisible = false;
+  triggerBlur(e) {
+    if (e && this.element.contains(e.explicitOriginalTarget.parentNode)) {
+      this.$element.find('input')[0].focus();
+    } else {
+      this.autocompleteVisible = false;
+      this.reset();
+    }
+  }
+
+  reset() {
+    this.currentItem = this.suggestions;
+    this.path = [];
+  }
+
+  next(item) {
+    this.currentItem = item;
+    this.path.push(item);
+  }
+
+  previous() {
+    this.path.pop();
+    this.currentItem = this.path.length > 0 ?
+      this.path[this.path.length - 1] :
+      this.suggestions;
   }
 }
 
@@ -114,6 +142,7 @@ const InputTagsComponent = {
   }
 };
 
+InputTagsComponent.$inject = ['$element'];
+
 angular.module('angularjs-input-tags', [])
-  .component('inputTags', InputTagsComponent)
-  .component('inputTagsAutoComplete', AutoCompleteComponent);
+  .component('inputTags', InputTagsComponent);

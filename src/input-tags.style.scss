@@ -1,15 +1,9 @@
 input-tags {
-  .host {
-    width: 100%;
-    outline: none;
-    user-select:none;
+  .ait-tag {
+    display: inline-block;
   }
 
-  .input-group-addon {
-    border-right: 0;
-  }
-
-  .display {
-    display: block;
+  .ait-dropdown {
+    position: absolute;
   }
 }
