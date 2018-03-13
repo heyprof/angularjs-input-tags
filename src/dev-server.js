@@ -5,14 +5,15 @@ import './input-tags.component';
 angular.module('dev-server', ['angularjs-input-tags'])
   .component('devServer', {
     template: `
-    <input-tags
-      tags="$ctrl.tags"
-      suggestions="$ctrl.suggestions"
-      disabled="$ctrl.disabled"
-      key-property="code"
-      display-property="title"
-      get-suggestions="$ctrl.updateSuggestions"></input-tags>
-    <pre>{{$ctrl.tags | json}}</pre>`,
+    <input-tags tags="$ctrl.tags"
+                suggestions="$ctrl.suggestions"
+                disabled="$ctrl.disabled"
+                key-property="code"
+                display-property="title"
+                get-suggestions="$ctrl.updateSuggestions"></input-tags>
+    <pre>
+      {{$ctrl.tags | json}}
+    </pre>`,
     controller: searchCtrl
   });
 
