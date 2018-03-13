@@ -8,7 +8,7 @@
 [![Code Climate Issues][badge-code-climate-issues-img]][badge-code-climate-issues-lnk]
 [![License][badge-license-img]][badge-license-lnk]
 
-AngularJS component to manage tags in input with dropdown selector themed with Bootstrap
+AngularJS component to manage tags in input with dropdown selector with no-dependencies
 
 ### TL;DR
 
@@ -22,7 +22,6 @@ AngularJS component to manage tags in input with dropdown selector themed with B
 
 Features:
 - Easy AngularJS 1.5+ Component
-- Bootstrap design ready
 - Multi-level dropdown selection
 - Minimum CSS applied. Use your own !
 

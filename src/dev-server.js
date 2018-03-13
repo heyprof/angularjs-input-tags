@@ -2,8 +2,6 @@ import angular from 'angular';
 
 import './input-tags.component';
 
-import 'bootstrap/dist/css/bootstrap.css';
-
 angular.module('dev-server', ['angularjs-input-tags'])
   .component('devServer', {
     template: `
