@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/heyprof/angularjs-tags-dropdown/issues"
   },
-  "main": "dist/angularjs-input-tags.min.js",
+  "main": "src/input-tags.component.js",
   "scripts": {
     "build": "webpack --config webpack.build.config.js",
     "serve": "webpack-dev-server --config webpack.serve.config.js",
