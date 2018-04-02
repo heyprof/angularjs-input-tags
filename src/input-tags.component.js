@@ -80,9 +80,8 @@ class InputTags {
   }
 
   inputChange() {
-    // TODO: Rename `getSuggestions` into something like `inputChanged`
-    if (this.getSuggestions) {
-      this.getSuggestions(this.inputSearch);
+    if (this.inputChanged) {
+      this.inputChanged(this.inputSearch);
     }
   }
 
@@ -131,7 +130,7 @@ const InputTagsComponent = {
     tags: '<',
     suggestions: '<',
     disabled: '<',
-    getSuggestions: '<',
+    inputChanged: '<',
     onTagAdding: '<',
     onTagAdded: '<',
     onTagAddFailed: '<',
