@@ -14,7 +14,6 @@ AngularJS component to manage tags in input with dropdown selector with no-depen
 
 - Demo and docs: [site][site]
 - Install with npm: `npm install angularjs-input-tags --save`
-- Install with bower: `bower install angularjs-input-tags --save`
 - Develop with `npm install` and `npm run serve`
 - Contrib with fork, `npm install`, develop things, `npm run build` and fork request
 
