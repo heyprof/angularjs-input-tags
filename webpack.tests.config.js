@@ -1,5 +1,6 @@
 module.exports = {
   devtool: 'inline-source-map',
+  mode: 'development',
   module: {
     rules: [{
       test: /\.js$/,
@@ -27,8 +28,5 @@ module.exports = {
         esModules: true
       }
     }]
-  },
-  devServer: {
-    stats: 'minimal'
   }
 };
