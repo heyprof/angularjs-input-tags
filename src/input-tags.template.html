@@ -10,14 +10,16 @@
             ng-bind="$ctrl.currentItem[$ctrl.displayProperty]"></span>
     </li>
     <li class="ait-dropdown-item"
+        ng-class="{
+          'ait-dropdown-item--checked': item.checked
+        }"
         ng-repeat="item in $ctrl.currentItem.data track by item.code"
         ng-click="item.data && item.data.length > 0 ? $ctrl.next(item) : $ctrl.addTag(item)">
       <span class="ait-dropdown-itemContent"
             ng-bind="item[$ctrl.displayProperty]"></span>
       <span class="ait-dropdown-itemNext"
             ng-if="item.data && item.data.length > 0"></span>
-      <span class="ait-dropdown-itemCheck"
-            ng-if="item.checked"></span>
+      <span class="ait-dropdown-itemCheck"></span>
     </li>
   </ul>
 
