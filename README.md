@@ -53,27 +53,12 @@ Technical TODOs:
 
 Resources:
 - [Npm Guide](https://docs.npmjs.com/getting-started/publishing-npm-packages)
-- [Bower Guide (deprecated)](https://bower.io/docs/creating-packages/)
 
 ### Execute tests TODO
 
 *Warning: Not implemented yet*
 
 `npm test`
-
-#### Bower link
-
-Bower users can link the project with another to test the package without deploying.
-
-In angularjs-input-tags do:
-
-`npm run bower link`
-
-In the target project do:
-
-`[path to valid bower bin] link angularjs-input-tags`
-
-A symlink of the project will be created in bower_components target project.
 
 ### LICENCE MIT
 
