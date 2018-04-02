@@ -16,7 +16,8 @@
             ng-bind="item[$ctrl.displayProperty]"></span>
       <span class="ait-dropdown-itemNext"
             ng-if="item.data && item.data.length > 0"></span>
-      <span class="ait-dropdown-itemCheck"></span>
+      <span class="ait-dropdown-itemCheck"
+            ng-if="item.checked"></span>
     </li>
   </ul>
 
