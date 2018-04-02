@@ -13,9 +13,9 @@
         ng-repeat="item in $ctrl.currentItem.data track by item.code"
         ng-click="item.data && item.data.length > 0 ? $ctrl.next(item) : $ctrl.addTag(item)">
       <span class="ait-dropdown-itemContent"
-            ng-if="item.data && item.data.length > 0"></span>
-      <span class="ait-dropdown-itemNext"
             ng-bind="item[$ctrl.displayProperty]"></span>
+      <span class="ait-dropdown-itemNext"
+            ng-if="item.data && item.data.length > 0"></span>
       <span class="ait-dropdown-itemCheck"></span>
     </li>
   </ul>
