@@ -2,27 +2,28 @@
   <ul class="ait-dropdown"
       ng-if="$ctrl.maxLength > $ctrl.tags.length"
       ng-show="$ctrl.autocompleteVisible">
-    <li class="ait-dropdown--title"
+    <li class="ait-dropdown-title"
         ng-if="$ctrl.path.length > 0"
-        ng-click="$ctrl.previous()"
-        ng-bind="$ctrl.currentItem[$ctrl.displayProperty] + '&lt;&nbsp;'">
+        ng-click="$ctrl.previous()">
+      <span class="ait-dropdown-titleBack">&lt;</span>
+      <span class="ait-dropdown-titleContent"
+            ng-bind="$ctrl.currentItem[$ctrl.displayProperty]"></span>
     </li>
-    <li class="ait-dropdown--title"
-        ng-if="$ctrl.path.length === 0"
-        ng-bind="$ctrl.currentItem[$ctrl.displayProperty]">
-    </li>
-    <li class="ait-dropdown--item"
+    <li class="ait-dropdown-item"
         ng-repeat="item in $ctrl.currentItem.data track by item.code"
-        ng-click="item.data && item.data.length > 0 ? $ctrl.next(item) : $ctrl.addTag(item)"
-        ng-bind="item[$ctrl.displayProperty] + (item.data && item.data.length > 0 && '&nbsp;&gt;')">
+        ng-click="item.data && item.data.length > 0 ? $ctrl.next(item) : $ctrl.addTag(item)">
+      <span class="ait-dropdown-itemNext"
+            ng-bind="item[$ctrl.displayProperty]"></span>
+      <span class="ait-dropdown-itemContent"
+            ng-if="item.data && item.data.length > 0"></span>
     </li>
   </ul>
 
   <div class="ait-tag"
        ng-repeat="tag in $ctrl.tags track by $ctrl.track(tag)">
-    <span class="ait-tag--text"
+    <span class="ait-tag-text"
           ng-bind="::$ctrl.getTagText(tag)"></span>
-    <span class="ait-tag--close"
+    <span class="ait-tag-close"
           style="cursor: pointer"
           ng-click="$ctrl.removeTag(tag)">
     </span>
