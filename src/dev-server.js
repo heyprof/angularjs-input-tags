@@ -68,8 +68,7 @@ function searchCtrl() {
               {code: 121, title: '121'},
               {code: 122, title: '122'}
             ]
-          }
-          ]
+          }]
         },
         {code: 2, title: '2'},
         {

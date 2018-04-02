@@ -5,7 +5,7 @@
     <li class="ait-dropdown-title"
         ng-if="$ctrl.path.length > 0"
         ng-click="$ctrl.previous()">
-      <span class="ait-dropdown-titleBack">&lt;</span>
+      <span class="ait-dropdown-titleBack"></span>
       <span class="ait-dropdown-titleContent"
             ng-bind="$ctrl.currentItem[$ctrl.displayProperty]"></span>
     </li>
@@ -16,6 +16,7 @@
             ng-bind="item[$ctrl.displayProperty]"></span>
       <span class="ait-dropdown-itemContent"
             ng-if="item.data && item.data.length > 0"></span>
+      <span class="ait-dropdown-itemCheck"></span>
     </li>
   </ul>
 

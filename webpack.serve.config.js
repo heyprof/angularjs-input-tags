@@ -3,8 +3,6 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
     './src/dev-server.js'
   ],
   output: {
@@ -12,9 +10,6 @@ module.exports = {
     sourceMapFilename: '[name].map'
   },
   devtool: 'eval',
-  devServer: {
-    hot: true
-  },
   module: {
     rules: [{
       test: /\.js$/,
@@ -42,15 +37,6 @@ module.exports = {
     }]
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks(module) {
-        return module.context && module.context.indexOf('node_modules') !== -1;
-      }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest'
-    }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({template: './src/dev-server.html'})
   ]

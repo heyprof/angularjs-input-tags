@@ -1,5 +1,4 @@
 import {MAX_SAFE_INTEGER} from './input-tags.constants';
-import './input-tags.style.scss';
 
 /**
  * @ngdoc component
