@@ -12,7 +12,7 @@
     <li class="ait-dropdown-item"
         ng-class="{
           'ait-dropdown-item--checked': item.checked,
-          'ait-dropdown-item--last': item.data && item.data.length === 0
+          'ait-dropdown-item--last': !item.data || item.data.length === 0
         }"
         ng-repeat="item in $ctrl.currentItem.data track by item.code"
         ng-click="item.data && item.data.length > 0 ? $ctrl.next(item) : $ctrl.addTag(item)">
