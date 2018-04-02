@@ -1,32 +1,47 @@
-<div class="host input-group"
-     tabindex="-1"
-     data-ng-blur="$ctrl.triggerBlur($event)"
-     data-ng-focus="$ctrl.triggerFocus($event)">
-  <div class="input-group-addon"
-       data-ng-repeat="tag in $ctrl.tags track by $ctrl.track(tag)">
-    <span class="tag-text" data-ng-bind="::$ctrl.getTagText(tag)"></span>
-    <span style="cursor: pointer" ng-click="$ctrl.removeTag(tag)">
-      &nbsp;&#x274c;
+<label class="ait-label">
+  <ul class="ait-dropdown"
+      ng-if="$ctrl.maxLength > $ctrl.tags.length"
+      ng-show="$ctrl.autocompleteVisible">
+    <li class="ait-dropdown-title"
+        ng-if="$ctrl.path.length > 0"
+        ng-click="$ctrl.previous()">
+      <span class="ait-dropdown-titleBack">&lt;</span>
+      <span class="ait-dropdown-titleContent"
+            ng-bind="$ctrl.currentItem[$ctrl.displayProperty]"></span>
+    </li>
+    <li class="ait-dropdown-item"
+        ng-repeat="item in $ctrl.currentItem.data track by item.code"
+        ng-click="item.data && item.data.length > 0 ? $ctrl.next(item) : $ctrl.addTag(item)">
+      <span class="ait-dropdown-itemNext"
+            ng-bind="item[$ctrl.displayProperty]"></span>
+      <span class="ait-dropdown-itemContent"
+            ng-if="item.data && item.data.length > 0"></span>
+    </li>
+  </ul>
+
+  <div class="ait-tag"
+       ng-repeat="tag in $ctrl.tags track by $ctrl.track(tag)">
+    <span class="ait-tag-text"
+          ng-bind="::$ctrl.getTagText(tag)"></span>
+    <span class="ait-tag-close"
+          style="cursor: pointer"
+          ng-click="$ctrl.removeTag(tag)">
     </span>
   </div>
 
-  <input-tags-auto-complete source="$ctrl.suggestions"
-                            ng-if="$ctrl.maxLength > $ctrl.tags.length"
-                            display-property="$ctrl.displayProperty"
-                            on-tag-add="$ctrl.addTag(tag)"
-                            visible="$ctrl.autocompleteVisible"></input-tags-auto-complete>
-
-  <input class="form-control"
+  <input class="ait-input"
+         type="text"
          autocomplete="off"
-         data-ng-trim="false"
+         ng-trim="false"
          tabindex="{{$ctrl.tabindex}}"
          placeholder="{{$ctrl.placeholder}}"
          spellcheck="{{$ctrl.spellcheck}}"
-         data-ng-if="$ctrl.maxLength > $ctrl.tags.length"
-         data-ng-model="$ctrl.inputSearch"
+         tabindex="-1"
+         ng-focus="$ctrl.triggerFocus($event)"
+         ng-blur="$ctrl.triggerBlur($event)"
+         ng-if="$ctrl.maxLength > $ctrl.tags.length"
+         ng-model="$ctrl.inputSearch"
          ng-model-options="{ debounce: $ctrl.inputDebounce }"
-         data-ng-change="$ctrl.inputChange()"
-         data-ng-disabled="$ctrl.disabled"
-         data-ng-focus="$ctrl.triggerFocus($event)"
-         data-ng-blur="$ctrl.triggerBlur($event)">
-</div>
+         ng-change="$ctrl.inputChange()"
+         ng-disabled="$ctrl.disabled" />
+</label>

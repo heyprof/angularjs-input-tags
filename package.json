@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/heyprof/angularjs-tags-dropdown/issues"
   },
-  "main": "dist/angularjs-input-tags.min.js",
+  "main": "src/input-tags.component.js",
   "scripts": {
     "build": "webpack --config webpack.build.config.js",
     "serve": "webpack-dev-server --config webpack.serve.config.js",
@@ -30,8 +30,7 @@
     "test-watch": "karma start --auto-watch --no-single-run"
   },
   "dependencies": {
-    "angular": ">=1.6.0",
-    "bootstrap": ">=3.3.0"
+    "angular": ">=1.6.0"
   },
   "devDependencies": {
     "angular-mocks": "^1.6.4",

@@ -7,35 +7,38 @@ describe('Module: angularjs-input-tags -', () => {
   }));
 
   describe('Component: inputTags -', () => {
+    let ctrl;
+
+    beforeEach(() => {
+      ctrl = $componentController('inputTags', {
+        $element: angular.element('<div></div>')
+      }, {
+        onTagAdding: jasmine.createSpy('onTagAdding'),
+        onTagRemoving: jasmine.createSpy('onTagRemoving')
+      });
+    });
     describe('Event: onTagAdding', () => {
       it('should be emit', () => {
-        const onTagAddingSpy = jasmine.createSpy('onTagAdding');
-        const bindings = {onTagAdding: onTagAddingSpy};
-        const ctrl = $componentController('inputTags', undefined, bindings);
         ctrl.$onInit();
         ctrl.addTag({code: 1, text: '1'});
-        expect(onTagAddingSpy).toHaveBeenCalled();
+        console.log(ctrl);
+        expect(ctrl.onTagAdding).toHaveBeenCalled();
       });
 
       it('should be emit with formatted tag value', () => {
-        const onTagAddingSpy = jasmine.createSpy('onTagAdding');
-        const bindings = {onTagAdding: onTagAddingSpy};
-        const ctrl = $componentController('inputTags', undefined, bindings);
         ctrl.$onInit();
         ctrl.addTag({code: 1, text: '1'});
-        expect(onTagAddingSpy).toHaveBeenCalledWith({code: 1, text: '1'});
+        expect(ctrl.onTagAdding).toHaveBeenCalledWith({code: 1, text: '1'});
       });
     });
 
     it('should add tag on list', () => {
-      const ctrl = $componentController('inputTags');
       ctrl.$onInit();
       ctrl.addTag({code: 1, text: '1'});
       expect(ctrl.tags).toContain({code: 1, text: '1'});
     });
 
     it('should update tag list', () => {
-      const ctrl = $componentController('inputTags');
       ctrl.$onInit();
       ctrl.addTag({code: 1, text: '1'});
       ctrl.addTag({code: 1, text: '1'});
@@ -44,92 +47,51 @@ describe('Module: angularjs-input-tags -', () => {
     });
 
     it('should ', () => {
-      const ctrl = $componentController('inputTags');
       ctrl.$onInit();
       ctrl.triggerFocus();
       expect(ctrl.autocompleteVisible).toBe(true);
     });
 
     it('should ', () => {
-      const ctrl = $componentController('inputTags');
       ctrl.$onInit();
       ctrl.triggerBlur();
       expect(ctrl.autocompleteVisible).toBe(false);
     });
 
     it('should ', () => {
-      const ctrl = $componentController('inputTags');
       ctrl.$onInit();
       ctrl.getTagText({text: 'test'});
       expect(ctrl.autocompleteVisible).toBe(false);
     });
 
     it('should ', () => {
-      const ctrl = $componentController('inputTags');
       ctrl.$onInit();
       const result = ctrl.track({text: '1'});
       expect(result).toBe('1');
     });
 
     it('should emit `onTagRemoving` event', () => {
-      const onTagRemovingSpy = jasmine.createSpy('onTagRemoving');
-      const bindings = {
-        onTagRemoving: onTagRemovingSpy,
-        tags: ['Demo']
-      };
-      const ctrl = $componentController('inputTags', undefined, bindings);
       ctrl.$onInit();
+      ctrl.tags = ['Demo'];
       ctrl.removeTag({code: 1, text: '1'});
-      expect(onTagRemovingSpy).toHaveBeenCalled();
-      expect(onTagRemovingSpy).toHaveBeenCalledWith({code: 1, text: '1'});
+      expect(ctrl.onTagRemoving).toHaveBeenCalled();
+      expect(ctrl.onTagRemoving).toHaveBeenCalledWith({code: 1, text: '1'});
     });
 
     it('should remove matching element by code', () => {
-      const ctrl = $componentController('inputTags');
       ctrl.$onInit();
-      ctrl.tags = [];
+      ctrl.tags.length = 0;
       ctrl.addTag({code: 1, text: '1'});
       ctrl.removeTag({code: 1});
       expect(ctrl.tags.length).toBe(0);
     });
-  });
-
-  describe('Component: inputTagsAutoComplete', () => {
-    it('should emit `onTagAdd` event', () => {
-      const onTagAddSpy = jasmine.createSpy('onTagAdd');
-      const bindings = {onTagAdd: onTagAddSpy};
-      const ctrl = $componentController('inputTagsAutoComplete', undefined, bindings);
-      ctrl.$onInit();
-      ctrl.addTag({code: 1, text: '0'});
-      expect(onTagAddSpy).toHaveBeenCalled();
-    });
-
-    it('should not emit `onTagAdd` event', () => {
-      const onTagAddSpy = jasmine.createSpy('onTagAdd');
-      const bindings = {onTagAdd: onTagAddSpy};
-      const ctrl = $componentController('inputTagsAutoComplete', undefined, bindings);
-      ctrl.$onInit();
-      ctrl.addTag();
-      expect(onTagAddSpy).toHaveBeenCalledTimes(1);
-    });
-
-    it('should emit `onTagAdd` event with formatted tag value', () => {
-      const onTagAddSpy = jasmine.createSpy('onTagAdd');
-      const bindings = {onTagAdd: onTagAddSpy};
-      const ctrl = $componentController('inputTagsAutoComplete', undefined, bindings);
-      ctrl.$onInit();
-      ctrl.addTag({code: 1, text: '1'});
-      expect(onTagAddSpy).toHaveBeenCalledWith({tag: {code: 1, text: '1'}});
-    });
 
     it('should reset the tag list', () => {
-      const ctrl = $componentController('inputTagsAutoComplete');
       ctrl.$onInit();
       expect(ctrl.path.length).toBe(0);
     });
 
     it('should go to the selected element in the tree', () => {
-      const ctrl = $componentController('inputTagsAutoComplete');
       ctrl.$onInit();
       const pathLength = ctrl.path.length;
       ctrl.next('subLevel');
@@ -137,7 +99,6 @@ describe('Module: angularjs-input-tags -', () => {
     });
 
     it('should back to the previous element in the tree when on the root', () => {
-      const ctrl = $componentController('inputTagsAutoComplete');
       ctrl.$onInit();
       ctrl.path = [];
       ctrl.previous();
@@ -145,7 +106,6 @@ describe('Module: angularjs-input-tags -', () => {
     });
 
     it('should back to the previous element in the tree when in 2 sublevels', () => {
-      const ctrl = $componentController('inputTagsAutoComplete');
       ctrl.$onInit();
       ctrl.next('subLevel');
       ctrl.next('subSubLevel');

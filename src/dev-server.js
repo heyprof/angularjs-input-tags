@@ -2,19 +2,18 @@ import angular from 'angular';
 
 import './input-tags.component';
 
-import 'bootstrap/dist/css/bootstrap.css';
-
 angular.module('dev-server', ['angularjs-input-tags'])
   .component('devServer', {
     template: `
-    <input-tags
-      tags="$ctrl.tags"
-      suggestions="$ctrl.suggestions"
-      disabled="$ctrl.disabled"
-      key-property="code"
-      display-property="title"
-      get-suggestions="$ctrl.updateSuggestions"></input-tags>
-    <pre>{{$ctrl.tags | json}}</pre>`,
+    <input-tags tags="$ctrl.tags"
+                suggestions="$ctrl.suggestions"
+                disabled="$ctrl.disabled"
+                key-property="code"
+                display-property="title"
+                get-suggestions="$ctrl.updateSuggestions"></input-tags>
+    <pre>
+      {{$ctrl.tags | json}}
+    </pre>`,
     controller: searchCtrl
   });
 
@@ -42,8 +41,6 @@ function searchCtrl() {
     vm.suggestions.data.length = 0;
     vm.suggestions.title = newSuggestions.title;
     Array.prototype.push.apply(vm.suggestions.data, newSuggestions.data);
-
-    console.log('devServer:getSuggestions.suggestions', vm.suggestions);
   };
 
   function searchSuggestions(search) {

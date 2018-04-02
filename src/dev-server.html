@@ -1,13 +1,36 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>Dev on !</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
+  <meta name="description"
+        content="">
+  <meta name="viewport"
+        content="width=device-width">
 </head>
 
-<body ng-app="dev-server" ng-strict-di>
-<dev-server></dev-server>
+<body ng-app="dev-server"
+      ng-strict-di>
+  <dev-server></dev-server>
+
+  <style>
+    .ait-input {
+      border: none;
+    }
+
+    .ait-dropdown {
+      position: absolute;
+
+      padding: 5px 0;
+      list-style: none;
+    }
+
+    .ait-tag--close:after {
+      content: 'x'
+    }
+  </style>
+
 </body>
+
 </html>
