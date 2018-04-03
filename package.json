@@ -1,6 +1,6 @@
 {
   "name": "angularjs-input-tags",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "AngularJS Component for input tags",
   "author": {
     "name": "Arthur Agombart",
@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/heyprof/angularjs-tags-dropdown/issues"
   },
-  "main": "dist/input-tags.component.js",
+  "main": "dist/input-tags.js",
   "scripts": {
     "build": "webpack",
     "start": "webpack-serve --config webpack.config.js",
