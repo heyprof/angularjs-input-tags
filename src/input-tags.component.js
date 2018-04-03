@@ -37,34 +37,32 @@ class InputTags {
     return tag[this.displayProperty];
   }
 
-  addTag(tag) {
+  isTagValid(tag) {
     const tagText = this.getTagText(tag);
     const key = this.keyProperty || this.displayProperty;
-    const valid = tagText &&
+    return tagText &&
       this.tags.length <= this.maxLength &&
       !this.tags.some(element => element[key] === tag[key]);
+  }
 
-    if (this.onTagAdding) {
-      this.onTagAdding(tag);
-    }
+  addTag(tag) {
+    const valid = this.isTagValid(tag);
+
+    this.emit('onTagAdding', tag);
 
     if (valid) {
       this.tags.push(tag);
 
-      if (this.onTagAdded) {
-        this.onTagAdded(tag);
-      }
-    } else if (this.onTagAddFailed) {
-      this.onTagAddFailed(tag);
+      this.emit('onTagAdded', tag);
+    } else {
+      this.emit('onTagAddFailed', tag);
     }
 
     return tag;
   }
 
   removeTag(tag) {
-    if (this.onTagRemoving) {
-      this.onTagRemoving(tag);
-    }
+    this.emit('onTagRemoving', tag);
 
     for (let i = this.tags.length - 1; i >= 0; i--) {
       if (this.tags[i].code === tag.code) {
@@ -72,17 +70,12 @@ class InputTags {
       }
     }
 
-    if (this.onTagRemoved) {
-      this.onTagRemoved(tag);
-    }
-
+    this.emit('onTagRemoved', tag);
     return tag;
   }
 
   inputChange() {
-    if (this.inputChanged) {
-      this.inputChanged(this.inputSearch);
-    }
+    this.emit('inputChanged', this.inputSearch);
   }
 
   triggerFocus() {
@@ -113,6 +106,12 @@ class InputTags {
     this.currentItem = this.path.length > 0 ?
       this.path[this.path.length - 1] :
       this.suggestions;
+  }
+
+  emit(action, ...params) {
+    if (this[action] && typeof this[action] === 'function') {
+      this[action].apply(this, params);
+    }
   }
 }
 

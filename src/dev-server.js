@@ -71,6 +71,10 @@ class DevServer {
     return accumulator;
   }
 
+  onTagAdd(tag) {
+    console.log(tag);
+  }
+
   updateSuggestions(search) {
     const newSuggestions = this.searchSuggestions(search);
 
@@ -96,6 +100,7 @@ angular.module('dev-server', ['angularjs-input-tags'])
                 suggestions="$ctrl.suggestions"
                 disabled="$ctrl.disabled"
                 key-property="code"
+                on-tag-added="$ctrl.onTagAdd"
                 display-property="title"
                 get-suggestions="$ctrl.updateSuggestions"></input-tags>
     <pre>
