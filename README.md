@@ -95,5 +95,5 @@ SOFTWARE.
 [badge-codeclimate-maintainability-lnk]: https://codeclimate.com/github/heyprof/angularjs-input-tags/maintainability
 [badge-codeclimate-coverage-img]: https://api.codeclimate.com/v1/badges/b8e2a66055de8869c139/test_coverage
 [badge-codeclimate-coverage-lnk]: https://codeclimate.com/github/heyprof/angularjs-input-tags/test_coverage
-[badge-license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
+[badge-license-img]: https://img.shields.io/badge/license-MIT-blue.svg
 [badge-license-lnk]: https://raw.githubusercontent.com/heyprof/angularjs-input-tags/master/LICENSE
