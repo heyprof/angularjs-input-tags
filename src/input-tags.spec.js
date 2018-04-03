@@ -46,28 +46,16 @@ describe('Module: angularjs-input-tags -', () => {
       expect(ctrl.tags.length).toBe(1);
     });
 
-    it('should ', () => {
+    it('should display autocomplete on focus', () => {
       ctrl.$onInit();
       ctrl.triggerFocus();
       expect(ctrl.autocompleteVisible).toBe(true);
     });
 
-    it('should ', () => {
+    it('should hide autocomplete on blur', () => {
       ctrl.$onInit();
       ctrl.triggerBlur();
       expect(ctrl.autocompleteVisible).toBe(false);
-    });
-
-    it('should ', () => {
-      ctrl.$onInit();
-      ctrl.getTagText({text: 'test'});
-      expect(ctrl.autocompleteVisible).toBe(false);
-    });
-
-    it('should ', () => {
-      ctrl.$onInit();
-      const result = ctrl.track({text: '1'});
-      expect(result).toBe('1');
     });
 
     it('should emit `onTagRemoving` event', () => {
