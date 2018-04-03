@@ -1,3 +1,4 @@
+import app from './app.module';
 import {MAX_SAFE_INTEGER} from './input-tags.constants';
 
 /**
@@ -139,7 +140,4 @@ const InputTagsComponent = {
   }
 };
 
-InputTagsComponent.$inject = ['$element'];
-
-angular.module('angularjs-input-tags', [])
-  .component('inputTags', InputTagsComponent);
+app.component('inputTags', InputTagsComponent);

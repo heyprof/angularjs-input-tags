@@ -45,7 +45,7 @@ module.exports = function (config) {
       ]
     },
 
-    webpack: require('./webpack.tests.config'),
+    webpack: require('./webpack.config'),
 
     // Hide webpack build information from output
     webpackMiddleware: {
