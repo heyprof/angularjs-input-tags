@@ -1,10 +1,7 @@
 # angularjs-input-tags 
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/heyprof/angularjs-input-tags.svg)](https://greenkeeper.io/)
-
 [![GitHub release][badge-release-img]][badge-release-lnk]
-[![Dependencies Status][badge-dependencies-img]][badge-dependencies-lnk]
-[![Dev Dependencies Status][badge-dev-dependencies-img]][badge-dev-dependencies-lnk]
+[![Greenkeeper badge][badge-greenkeeper-img]][badge-greenkeeper-lnk]
 [![Travis CI Status][badge-travis-img]][badge-travis-lnk]
 [![Code Climate Status][badge-code-climate-status-img]][badge-code-climate-status-lnk]
 [![Code Climate Issues][badge-code-climate-issues-img]][badge-code-climate-issues-lnk]
@@ -89,6 +86,8 @@ SOFTWARE.
 
 [badge-release-img]: https://img.shields.io/github/release/heyprof/angularjs-input-tags/all.svg?style=flat-square
 [badge-release-lnk]: https://github.com/heyprof/angularjs-input-tags/releases
+[badge-greenkeeper-img]: https://badges.greenkeeper.io/heyprof/angularjs-input-tags.svg?style=flat-square
+[badge-greenkeeper-lnk]: https://account.greenkeeper.io/account/heyprof
 [badge-dependencies-img]: https://img.shields.io/david/heyprof/angularjs-input-tags.svg?style=flat-square
 [badge-dependencies-lnk]: https://david-dm.org/heyprof/angularjs-input-tags
 [badge-dev-dependencies-img]: https://img.shields.io/david/dev/heyprof/angularjs-input-tags.svg?style=flat-square
