@@ -3,9 +3,10 @@
 [![GitHub release][badge-release-img]][badge-release-lnk]
 [![Greenkeeper badge][badge-greenkeeper-img]][badge-greenkeeper-lnk]
 [![Travis CI Status][badge-travis-img]][badge-travis-lnk]
-[![Code Climate Status][badge-code-climate-status-img]][badge-code-climate-status-lnk]
-[![Code Climate Issues][badge-code-climate-issues-img]][badge-code-climate-issues-lnk]
+[![Maintainability][badge-codeclimate-maintainability-img]][badge-codeclimate-maintainability-lnk]
+[![Test Coverage][badge-codeclimate-coverage-img]][badge-codeclimate-coverage-lnk]
 [![License][badge-license-img]][badge-license-lnk]
+
 
 AngularJS component to manage tags in input with dropdown selector with no-dependencies
 
@@ -84,19 +85,15 @@ SOFTWARE.
 
 [site]: https://heyprof.github.io/angularjs-input-tags/
 
-[badge-release-img]: https://img.shields.io/github/release/heyprof/angularjs-input-tags/all.svg?style=flat-square
+[badge-release-img]: https://img.shields.io/github/release/heyprof/angularjs-input-tags/all.svg
 [badge-release-lnk]: https://github.com/heyprof/angularjs-input-tags/releases
-[badge-greenkeeper-img]: https://badges.greenkeeper.io/heyprof/angularjs-input-tags.svg?style=flat-square
+[badge-greenkeeper-img]: https://badges.greenkeeper.io/heyprof/angularjs-input-tags.svg
 [badge-greenkeeper-lnk]: https://account.greenkeeper.io/account/heyprof
-[badge-dependencies-img]: https://img.shields.io/david/heyprof/angularjs-input-tags.svg?style=flat-square
-[badge-dependencies-lnk]: https://david-dm.org/heyprof/angularjs-input-tags
-[badge-dev-dependencies-img]: https://img.shields.io/david/dev/heyprof/angularjs-input-tags.svg?style=flat-square
-[badge-dev-dependencies-lnk]: https://david-dm.org/heyprof/angularjs-input-tags?type=dev
-[badge-travis-img]: https://img.shields.io/travis/heyprof/angularjs-input-tags.svg?style=flat-square&label=TravisCI
+[badge-travis-img]: https://img.shields.io/travis/heyprof/angularjs-input-tags.svg?label=TravisCI
 [badge-travis-lnk]: https://travis-ci.org/heyprof/angularjs-input-tags
-[badge-code-climate-status-img]: https://img.shields.io/codeclimate/github/heyprof/angularjs-input-tags.svg?style=flat-square&label=climate
-[badge-code-climate-status-lnk]: https://codeclimate.com/github/heyprof/angularjs-input-tags
-[badge-code-climate-issues-img]: https://img.shields.io/codeclimate/issues/github/heyprof/angularjs-input-tags.svg?style=flat-square&label=climate&nbsp;issues
-[badge-code-climate-issues-lnk]: https://codeclimate.com/github/heyprof/angularjs-input-tags/issues
+[badge-codeclimate-maintainability-img]: https://api.codeclimate.com/v1/badges/b8e2a66055de8869c139/maintainability
+[badge-codeclimate-maintainability-lnk]: https://codeclimate.com/github/heyprof/angularjs-input-tags/maintainability
+[badge-codeclimate-coverage-img]: https://api.codeclimate.com/v1/badges/b8e2a66055de8869c139/test_coverage
+[badge-codeclimate-coverage-lnk]: https://codeclimate.com/github/heyprof/angularjs-input-tags/test_coverage
 [badge-license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 [badge-license-lnk]: https://raw.githubusercontent.com/heyprof/angularjs-input-tags/master/LICENSE
