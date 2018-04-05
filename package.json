@@ -45,7 +45,6 @@
     "eslint-config-xo-space": "^0.18.0",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-angular": "^3.3.0",
-    "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.1.0",
     "istanbul-instrumenter-loader": "^3.0.1",
@@ -57,10 +56,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.32",
     "karma-webpack": "^3.0.0",
-    "ng-annotate-loader": "^0.6.0",
-    "null-loader": "^0.1.1",
     "phantomjs-prebuilt": "^2.1.16",
-    "raw-loader": "^0.5.1",
     "webpack": "^4.4.1",
     "webpack-cli": "^2.0.13",
     "webpack-serve": "^0.3.1"
