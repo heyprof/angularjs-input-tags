@@ -100,7 +100,7 @@ angular.module('dev-server', ['angularjs-input-tags'])
                 suggestions="$ctrl.suggestions"
                 disabled="$ctrl.disabled"
                 key-property="code"
-                on-tag-added="$ctrl.onTagAdd"
+                on-tag-added="$ctrl.onTagAdd(tag)"
                 display-property="title"
                 get-suggestions="$ctrl.updateSuggestions"></input-tags>
     <pre>

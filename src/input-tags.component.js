@@ -49,21 +49,21 @@ class InputTags {
   addTag(tag) {
     const valid = this.isTagValid(tag);
 
-    this.emit('onTagAdding', tag);
+    this.emit('onTagAdding', {tag});
 
     if (valid) {
       this.tags.push(tag);
 
-      this.emit('onTagAdded', tag);
+      this.emit('onTagAdded', {tag});
     } else {
-      this.emit('onTagAddFailed', tag);
+      this.emit('onTagAddFailed', {tag});
     }
 
     return tag;
   }
 
   removeTag(tag) {
-    this.emit('onTagRemoving', tag);
+    this.emit('onTagRemoving', {tag});
 
     for (let i = this.tags.length - 1; i >= 0; i--) {
       if (this.tags[i].code === tag.code) {
@@ -71,12 +71,14 @@ class InputTags {
       }
     }
 
-    this.emit('onTagRemoved', tag);
+    this.emit('onTagRemoved', {tag});
     return tag;
   }
 
   inputChange() {
-    this.emit('inputChanged', this.inputSearch);
+    this.emit('inputChanged', {
+      inputValue: this.inputSearch
+    });
   }
 
   triggerFocus() {
@@ -130,13 +132,13 @@ const InputTagsComponent = {
     tags: '<',
     suggestions: '<',
     disabled: '<',
-    inputChanged: '<',
-    onTagAdding: '<',
-    onTagAdded: '<',
-    onTagAddFailed: '<',
-    onTagRemoving: '<',
-    onTagRemoved: '<',
-    onTagClicked: '<'
+    inputChanged: '&',
+    onTagAdding: '&',
+    onTagAdded: '&',
+    onTagAddFailed: '&',
+    onTagRemoving: '&',
+    onTagRemoved: '&',
+    onTagClicked: '&'
   }
 };
 
