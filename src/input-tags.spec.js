@@ -27,7 +27,7 @@ describe('Module: angularjs-input-tags -', () => {
       it('should be emit with formatted tag value', () => {
         ctrl.$onInit();
         ctrl.addTag({code: 1, text: '1'});
-        expect(ctrl.onTagAdding).toHaveBeenCalledWith({code: 1, text: '1'});
+        expect(ctrl.onTagAdding).toHaveBeenCalledWith({tag: {code: 1, text: '1'}});
       });
     });
 
@@ -62,7 +62,7 @@ describe('Module: angularjs-input-tags -', () => {
       ctrl.tags = ['Demo'];
       ctrl.removeTag({code: 1, text: '1'});
       expect(ctrl.onTagRemoving).toHaveBeenCalled();
-      expect(ctrl.onTagRemoving).toHaveBeenCalledWith({code: 1, text: '1'});
+      expect(ctrl.onTagRemoving).toHaveBeenCalledWith({tag: {code: 1, text: '1'}});
     });
 
     it('should remove matching element by code', () => {
