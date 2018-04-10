@@ -21,7 +21,6 @@ describe('Module: angularjs-input-tags -', () => {
       it('should be emit', () => {
         ctrl.$onInit();
         ctrl.addTag({code: 1, text: '1'});
-        console.log(ctrl);
         expect(ctrl.onTagAdding).toHaveBeenCalled();
       });
 
