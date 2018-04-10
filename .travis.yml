@@ -1,0 +1,22 @@
+dist: trusty
+sudo: false
+language: node_js
+node_js:
+  - 9
+
+cache:
+  directories:
+    - "node_modules"
+
+git:
+  depth: false
+
+after_success:
+  - bash ci/commit-lockfile.sh
+
+notifications:
+  email: false
+  slack:
+    on_success: change
+    rooms:
+      - heyprof:OnsMQaj2FtGkJ972FzpPw60T#pipelines-front
