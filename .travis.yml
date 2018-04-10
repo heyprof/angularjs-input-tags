@@ -10,13 +10,18 @@ cache:
 
 git:
   depth: false
+  
+branches:
+  only: 
+    - master
 
-after_success:
+before_script:
   - bash ci/commit-lockfile.sh
 
 notifications:
   email: false
   slack:
     on_success: change
+    on_failure: always
     rooms:
       - heyprof:OnsMQaj2FtGkJ972FzpPw60T#pipelines-front
