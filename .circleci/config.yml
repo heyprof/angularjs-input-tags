@@ -26,12 +26,12 @@ jobs:
             - node_modules
           key: dependencies-{{ checksum "package.json" }}
 
-      - run:
-          name: Custom task
-          command: .circleci/commit-lockfile.sh
-
       - run: 
           name: Executing tests
           command: npm test
+
+      - run:
+          name: Update Lockfile
+          command: .circleci/commit-lockfile.sh
 
 
