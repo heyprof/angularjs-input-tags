@@ -2,7 +2,7 @@
 
 [![GitHub release][badge-release-img]][badge-release-lnk]
 [![Greenkeeper badge][badge-greenkeeper-img]][badge-greenkeeper-lnk]
-[![Travis CI Status][badge-travis-img]][badge-travis-lnk]
+[![CircleCI][badge-circleci-img]][badge-circleci-lnk]
 [![Maintainability][badge-codeclimate-maintainability-img]][badge-codeclimate-maintainability-lnk]
 [![Test Coverage][badge-codeclimate-coverage-img]][badge-codeclimate-coverage-lnk]
 [![License][badge-license-img]][badge-license-lnk]
@@ -89,8 +89,8 @@ SOFTWARE.
 [badge-release-lnk]: https://github.com/heyprof/angularjs-input-tags/releases
 [badge-greenkeeper-img]: https://badges.greenkeeper.io/heyprof/angularjs-input-tags.svg
 [badge-greenkeeper-lnk]: https://account.greenkeeper.io/account/heyprof
-[badge-travis-img]: https://img.shields.io/travis/heyprof/angularjs-input-tags.svg?label=TravisCI
-[badge-travis-lnk]: https://travis-ci.org/heyprof/angularjs-input-tags
+[badge-circleci-img]: https://circleci.com/gh/heyprof/angularjs-input-tags/tree/master.svg?style=svg
+[badge-circleci-lnk]: https://circleci.com/gh/heyprof/angularjs-input-tags/tree/master
 [badge-codeclimate-maintainability-img]: https://api.codeclimate.com/v1/badges/b8e2a66055de8869c139/maintainability
 [badge-codeclimate-maintainability-lnk]: https://codeclimate.com/github/heyprof/angularjs-input-tags/maintainability
 [badge-codeclimate-coverage-img]: https://api.codeclimate.com/v1/badges/b8e2a66055de8869c139/test_coverage
