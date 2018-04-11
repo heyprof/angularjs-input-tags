@@ -28,7 +28,7 @@ jobs:
 
       - run:
           name: Custom task
-          command: ./commit-lockfile.sh
+          command: .circleci/commit-lockfile.sh
 
       - run: 
           name: Executing tests
