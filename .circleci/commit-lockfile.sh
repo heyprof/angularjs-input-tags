@@ -1,22 +1,18 @@
 #!/bin/bash
 
+PROJECT_LOCKFILE=${PROJECT_LOCKFILE:-"package-lock.json"}
+
 # if [[ $TRAVIS_PULL_REQUEST_BRANCH != *"greenkeeper"* ]]; then
 #  exit 0
 # fi
 
-# if ! git diff-index --quiet HEAD --; then
-  git config --global user.email "$GITHUB_EMAIL"
-  git config --global user.name "Circle CI"
-  git config --global push.default simple
-  # git remote add jenkins https://"$GITHUB_TOKEN"@github.com/"$TRAVIS_REPO_SLUG".git
+echo "" >> $PROJECT_LOCKFILE
+# if ! git diff-index --quiet HEAD $PROJECT_LOCKFILE --; then
+  # git config user.email "$GITHUB_EMAIL"
+  # git config user.name "Circle CI"
+  # git config push.default simple
 
-  git add package-lock.json
-  git commit -m "chore(*): update lockfile [ci skip]"
-  LAST_COMMIT=`git rev-parse HEAD`
-  echo "Test me"
-  printenv
-  echo $LAST_COMMIT
-  git status
-  # git push origin $LAST_COMMIT:$TRAVIS_PULL_REQUEST_BRANCH
-  # git remote rm jenkins
+  git add $PROJECT_LOCKFILE
+  git commit -m "chore(*): update lockfile [ci skip]" -m "See: $CIRCLE_BUILD_URL" --author="$GITHUB_AUTHOR"
+  git push origin $CIRCLE_BRANCH
 # fi
