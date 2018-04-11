@@ -31,18 +31,30 @@ describe('Module: angularjs-input-tags -', () => {
       });
     });
 
-    it('should add tag on list', () => {
-      ctrl.$onInit();
-      ctrl.addTag({code: 1, text: '1'});
-      expect(ctrl.tags).toContain({code: 1, text: '1'});
+    describe('Event: onTagRemoving', () => {
+      it('should be emit', () => {
+        ctrl.$onInit();
+        ctrl.tags = ['Demo'];
+        ctrl.removeTag({code: 1, text: '1'});
+        expect(ctrl.onTagRemoving).toHaveBeenCalled();
+        expect(ctrl.onTagRemoving).toHaveBeenCalledWith({tag: {code: 1, text: '1'}});
+      });
     });
 
-    it('should update tag list', () => {
-      ctrl.$onInit();
-      ctrl.addTag({code: 1, text: '1'});
-      ctrl.addTag({code: 1, text: '1'});
-      ctrl.addTag({code: 1, text: '1'});
-      expect(ctrl.tags.length).toBe(1);
+    describe('Action: add a tag', () => {
+      it('should add tag on list', () => {
+        ctrl.$onInit();
+        ctrl.addTag({code: 1, text: '1'});
+        expect(ctrl.tags).toContain({code: 1, text: '1'});
+      });
+
+      it('should update tag list', () => {
+        ctrl.$onInit();
+        ctrl.addTag({code: 1, text: '1'});
+        ctrl.addTag({code: 1, text: '1'});
+        ctrl.addTag({code: 1, text: '1'});
+        expect(ctrl.tags.length).toBe(1);
+      });
     });
 
     it('should display autocomplete on focus', () => {
@@ -55,14 +67,6 @@ describe('Module: angularjs-input-tags -', () => {
       ctrl.$onInit();
       ctrl.triggerBlur();
       expect(ctrl.autocompleteVisible).toBe(false);
-    });
-
-    it('should emit `onTagRemoving` event', () => {
-      ctrl.$onInit();
-      ctrl.tags = ['Demo'];
-      ctrl.removeTag({code: 1, text: '1'});
-      expect(ctrl.onTagRemoving).toHaveBeenCalled();
-      expect(ctrl.onTagRemoving).toHaveBeenCalledWith({tag: {code: 1, text: '1'}});
     });
 
     it('should remove matching element by code', () => {
