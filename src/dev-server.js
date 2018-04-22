@@ -1,6 +1,6 @@
-import angular from 'angular';
+import angular from 'angular'
 
-import './input-tags.component';
+import './input-tags.component'
 
 const mock = {
   title: 'root',
@@ -53,43 +53,43 @@ const mock = {
       }]
     }
   ]
-};
+}
 
 class DevServer {
-  $onInit() {
-    this.tags = [];
-    this.disabled = false;
-    this.suggestions = {title: '', data: []};
-    this.updateSuggestions();
+  $onInit () {
+    this.tags = []
+    this.disabled = false
+    this.suggestions = {title: '', data: []}
+    this.updateSuggestions()
   }
 
-  flat(accumulator, currentValue) {
-    accumulator.push(currentValue);
+  flat (accumulator, currentValue) {
+    accumulator.push(currentValue)
     if (Array.isArray(currentValue.data)) {
-      return currentValue.data.reduce(this.flat, accumulator);
+      return currentValue.data.reduce(this.flat, accumulator)
     }
-    return accumulator;
+    return accumulator
   }
 
-  onTagAdd(tag) {
-    console.log(tag);
+  onTagAdd (tag) {
+    console.log(tag)
   }
 
-  updateSuggestions(search) {
-    const newSuggestions = this.searchSuggestions(search);
+  updateSuggestions (search) {
+    const newSuggestions = this.searchSuggestions(search)
 
-    this.suggestions.data.length = 0;
-    this.suggestions.title = newSuggestions.title;
-    Array.prototype.push.apply(this.suggestions.data, newSuggestions.data);
+    this.suggestions.data.length = 0
+    this.suggestions.title = newSuggestions.title
+    Array.prototype.push.apply(this.suggestions.data, newSuggestions.data)
   }
 
-  searchSuggestions(search) {
+  searchSuggestions (search) {
     return {
       title: mock.title,
       data: (search ? mock.data.reduce(this.flat, []).filter(elem => {
-        return String(elem.title).indexOf(String(search)) >= 0;
+        return String(elem.title).indexOf(String(search)) >= 0
       }) : mock.data)
-    };
+    }
   }
 }
 
@@ -111,4 +111,4 @@ angular.module('dev-server', ['angularjs-input-tags'])
       {{$ctrl.tags | json}}
     </pre>`,
     controller: DevServer
-  });
+  })

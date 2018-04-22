@@ -1,6 +1,6 @@
-import 'angular';
-import 'angular-mocks/angular-mocks';
+import 'angular'
+import 'angular-mocks/angular-mocks'
 
-const context = require.context('.', true, /\.js$/);
+const context = require.context('.', true, /\.js$/)
 
-context.keys().forEach(context);
+context.keys().forEach(context)
