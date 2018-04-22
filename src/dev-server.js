@@ -101,6 +101,10 @@ angular.module('dev-server', ['angularjs-input-tags'])
                 disabled="$ctrl.disabled"
                 key-property="code"
                 on-tag-added="$ctrl.onTagAdd(tag)"
+                item-back-class="classAdedd classBack"
+                item-next-class="classAdedd classNext"
+                item-check-class="classAdedd classCheck"
+                remove-tag-class="classAdedd classRemove"
                 display-property="title"
                 get-suggestions="$ctrl.updateSuggestions"></input-tags>
     <pre>
