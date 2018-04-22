@@ -21,7 +21,7 @@ class InputTags {
     this.tags = this.tags || [];
     this.suggestions = this.suggestions || {};
     this.displayProperty = this.displayProperty || 'text';
-    this.keyProperty = this.keyProperty || '';
+    this.keyProperty = this.keyProperty || this.displayProperty;
     this.placeholder = this.placeholder || 'Add a tag';
     this.spellcheck = this.spellcheck || true;
     this.maxLength = this.maxLength || MAX_SAFE_INTEGER;
@@ -31,7 +31,7 @@ class InputTags {
   }
 
   track(tag) {
-    return tag[this.keyProperty || this.displayProperty];
+    return tag[this.keyProperty];
   }
 
   getTagText(tag) {
@@ -40,7 +40,7 @@ class InputTags {
 
   isTagValid(tag) {
     const tagText = this.getTagText(tag);
-    const key = this.keyProperty || this.displayProperty;
+    const key = this.keyProperty;
     return tagText &&
       this.tags.length <= this.maxLength &&
       !this.tags.some(element => element[key] === tag[key]);
@@ -53,13 +53,16 @@ class InputTags {
 
     if (valid) {
       this.tags.push(tag);
-
       this.emit('onTagAdded', {tag});
     } else {
       this.emit('onTagAddFailed', {tag});
     }
 
     return tag;
+  }
+
+  isTagAdded(tag) {
+    return this.tags.find(eTag => eTag[this.keyProperty] === tag[this.keyProperty]);
   }
 
   removeTag(tag) {
