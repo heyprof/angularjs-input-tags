@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # https://circleci.com/docs/2.0/circleci-images/
-      - image: circleci/node:9-browsers
+      - image: circleci/node:10.0-stretch
 
     steps:
       - checkout
